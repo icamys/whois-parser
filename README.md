@@ -19,24 +19,22 @@ go get -u github.com/icamys/whois-parser
 
 #### Usage
 
-```
-package demo
-
-import (
-	"encoding/json"
-	"fmt"
-	whoisparser "github.com/icamys/whois-parser"
-
-)
-
-func main() {
-	domain := "google.com"
-	whois := "Domain Name: GOOGLE.COM"
-	whoisInfo, _ := whoisparser.Parse(domain, whois)
-	whois2b,_ := json.Marshal(whoisInfo)
-	fmt.Println(string(whois2b))
-}
-```
+    package demo
+    
+    import (
+        "encoding/json"
+        "fmt"
+        whoisparser "github.com/icamys/whois-parser"
+    
+    )
+    
+    func main() {
+        domain := "google.com"
+        whois := "Domain Name: GOOGLE.COM"
+        whoisInfo, _ := whoisparser.Parse(domain, whois)
+        whois2b,_ := json.Marshal(whoisInfo)
+        fmt.Println(string(whois2b))
+    }
 
 ## Contributing
 
