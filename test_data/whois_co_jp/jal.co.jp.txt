@@ -1,0 +1,22 @@
+[ JPRS database provides information on network administration. Its use is    ]
+[ restricted to network administration purposes. For further information,     ]
+[ use 'whois -h whois.jprs.jp help'. To suppress Japanese output, add'/e'     ]
+[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]
+
+Domain Information:
+a. [Domain Name]                JAL.CO.JP
+g. [Organization]               Japan Airlines Co., Ltd.
+l. [Organization Type]          Company Limited
+m. [Administrative Contact]     YS32616JP
+n. [Technical Contact]          KT15543JP
+n. [Technical Contact]          MY9415JP
+n. [Technical Contact]          SK12923JP
+n. [Technical Contact]          TK22256JP
+p. [Name Server]                dns-a.iij.ad.jp
+p. [Name Server]                ns01.jal.co.jp
+p. [Name Server]                ns02.jal.co.jp
+s. [Signing Key]
+[State]                         Connected (2020/08/31)
+[Registered Date]               1994/08/04
+[Connected Date]                1995/02/17
+[Last Update]                   2019/09/01 01:07:02 (JST)
