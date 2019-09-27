@@ -19,8 +19,12 @@ const (
 	// ErrCodeTldHasNoServer is returned when the requested TLD has no whois server
 	ErrCodeTldHasNoServer ErrCode = 4
 
-	// ErrCodeEmptyWhois is returned when the the whois text is empty
+	// ErrCodeEmptyWhois is returned when the whois text is empty
 	ErrCodeEmptyWhois ErrCode = 5
+
+	// ErrCodeNoErrorRules is returned when the error checking regular expressions
+	// are not set for current parser
+	ErrCodeNoErrorRegex ErrCode = 6
 )
 
 var (

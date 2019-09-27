@@ -43,12 +43,12 @@ func (p *Parser) getErrCode(text string) ErrCode {
 		return ErrCodeEmptyWhois
 	}
 
-	if p.errorRegex == nil {
-		return ErrCodeNoError
-	}
-
 	if strings.Contains(text, "This TLD has no whois server, but you can access the whois database at") {
 		return ErrCodeTldHasNoServer
+	}
+
+	if p.errorRegex == nil {
+		return ErrCodeNoErrorRegex
 	}
 
 	if p.errorRegex.MalformedRequest != nil && len(p.errorRegex.MalformedRequest.FindString(text)) > 0 {
