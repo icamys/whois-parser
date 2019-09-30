@@ -198,18 +198,18 @@ var DefaultParser = Parser{
 		MalformedRequest: regexp.MustCompile(`^No match for "`),
 	},
 	registrarRegex: &RegistrarRegex{
-		CreatedDate:    nil,
+		CreatedDate:    nil, //TODO WHy not `(?i)Creation Date: *(.+)`
 		DomainDNSSEC:   regexp.MustCompile(`(?i)dnssec: *([\S]+)`),
-		DomainID:       nil,
+		DomainID:       nil, //TODO WHy not `(?i)Registry Domain ID: *(.+)`
 		DomainName:     regexp.MustCompile(`(?i)Domain Name: *(.+)`),
 		DomainStatus:   regexp.MustCompile(`(?i)Status: *(\w+).*`),
 		Emails:         regexp.MustCompile(`(?i)Registrar Abuse Contact Email: *(` + EmailRegex + `)`),
 		ExpirationDate: regexp.MustCompile(`(?i)Expir\w+ Date: *(.+)`),
 		NameServers:    regexp.MustCompile(`(?i)Name Server: *(.+)`),
 		ReferralURL:    regexp.MustCompile(`(?i)Referral URL: *(.+)`),
-		RegistrarID:    nil,
+		RegistrarID:    nil, //TODO WHy not `(?i)Registrar IANA ID: *(.+)`
 		RegistrarName:  regexp.MustCompile(`(?i)Registrar: *(.+)`),
-		UpdatedDate:    nil,
+		UpdatedDate:    nil, //TODO WHy not `(?i)Updated Date: *(.+)`
 		WhoisServer:    regexp.MustCompile(`(?i)Whois Server: *(.+)`),
 	},
 	registrantRegex: &RegistrantRegex{
