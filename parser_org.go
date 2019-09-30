@@ -19,7 +19,7 @@ var orgParser = &Parser{
 		DomainID:       regexp.MustCompile(`Registry Domain ID: *(.+)`),
 		DomainName:     regexp.MustCompile(`Domain Name: *(.+)`),
 		DomainStatus:   regexp.MustCompile(`(?i)Domain status: *(.+)`),
-		Emails:         regexp.MustCompile(`(?i)` + EmailRegex),
+		Emails:         regexp.MustCompile(`(?i)Registrar Abuse Contact Email: *(` + EmailRegex + `)`),
 		ExpirationDate: regexp.MustCompile(`Registrar Registration Expiration Date: *(.+)`),
 		NameServers:    regexp.MustCompile(`Name Server: *(.+)`),
 		RegistrarID:    regexp.MustCompile(`Registrar IANA ID: *(.+)`),
@@ -36,5 +36,5 @@ var orgParser = &Parser{
 }
 
 func init() {
-	RegisterParser(".jp", orgParser)
+	RegisterParser(".org", orgParser)
 }
