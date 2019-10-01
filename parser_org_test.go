@@ -1,6 +1,6 @@
 package whoisparser
 
-// TODO Rename file!
+// TODO Rename file when more then 1 tld test added!
 import (
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
@@ -20,15 +20,20 @@ const (
 	LEN
 )
 
-func TestStartOrgTest(t *testing.T) { //TODO RENAME
+func TestStartParserTesters(t *testing.T) { //TODO RENAME
 
 	checkParams := map[string][]*DataForTest{
 		"Registrar": {
 			{Field: "DomainName", ExpectedResult: "WIKIPEDIA.ORG", CheckType: EQUAL},
 			{Field: "DomainDNSSEC", ExpectedResult: "unsigned", CheckType: EQUAL},
+			{Field: "RegistrarName", ExpectedResult: "MarkMonitor Inc.", CheckType: EQUAL},
+			{Field: "WhoisServer", ExpectedResult: "whois.markmonitor.com", CheckType: EQUAL},
 			{Field: "NameServers", ExpectedResult: "NS2.WIKIMEDIA.ORG", CheckType: CONTAINS},
 			{Field: "Emails", ExpectedResult: "abusecomplaints@markmonitor.com", CheckType: EQUAL},
 			{Field: "RegistrarID", ExpectedResult: 3, CheckType: LEN},
+		},
+		"Registrant": {
+			{Field: "Organization", ExpectedResult: "Wikimedia Foundation, Inc.", CheckType: EQUAL},
 		},
 	}
 	parserTester(
@@ -36,10 +41,11 @@ func TestStartOrgTest(t *testing.T) { //TODO RENAME
 		orgParser,
 		checkParams,
 		"test_data/whois_org/wikipedia.org.txt",
+		".org parser",
 	)
 
 }
-func parserTester(t *testing.T, targetParser *Parser, containParams map[string][]*DataForTest, pathToInput string) {
+func parserTester(t *testing.T, targetParser *Parser, containParams map[string][]*DataForTest, pathToInput string, parserName string) {
 	var fileBytes []byte
 	var err error
 	var text string
@@ -62,7 +68,7 @@ func parserTester(t *testing.T, targetParser *Parser, containParams map[string][
 					t,
 					filedForCheck,
 					TestData.ExpectedResult,
-					"failed on "+"\n"+
+					"failed on "+parserName+"\n"+
 						"structure "+parserStruckField+"."+TestData.Field+"\n"+
 						"path to input file: "+pathToInput,
 				)
@@ -71,7 +77,7 @@ func parserTester(t *testing.T, targetParser *Parser, containParams map[string][
 					t,
 					TestData.ExpectedResult,
 					filedForCheck,
-					"failed on "+"\n"+
+					"failed on "+parserName+"\n"+
 						"structure "+parserStruckField+"."+TestData.Field+"\n"+
 						"path to input file: "+pathToInput,
 				)
@@ -80,7 +86,7 @@ func parserTester(t *testing.T, targetParser *Parser, containParams map[string][
 					t,
 					filedForCheck,
 					TestData.ExpectedResult.(int),
-					"failed on "+"\n"+
+					"failed on "+parserName+"\n"+
 						"structure "+parserStruckField+"."+TestData.Field+"\n"+
 						"path to input file: "+pathToInput,
 				)
