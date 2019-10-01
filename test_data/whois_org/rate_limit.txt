@@ -1,0 +1,2 @@
+fgets: Connection reset by peer
+WHOIS LIMIT EXCEEDED - SEE WWW.PIR.ORG/WHOIS FOR DETAILS

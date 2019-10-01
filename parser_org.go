@@ -9,7 +9,7 @@ var orgParser = &Parser{
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`NOT FOUND`),
-		RateLimit:        nil,
+		RateLimit:        regexp.MustCompile(`WHOIS LIMIT EXCEEDED`),
 		MalformedRequest: regexp.MustCompile(`Not a valid domain search pattern`),
 	},
 
