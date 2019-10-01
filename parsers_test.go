@@ -1,6 +1,5 @@
 package whoisparser
 
-// TODO Rename file when more then 1 tld test added!
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
@@ -18,24 +17,24 @@ type AssertParams struct {
 type AssertParamsMap map[string][]*AssertParams
 
 const (
-	AssertContains = iota //TODO CONTAINS can be unreliable, because return true when looking string in string
-	AssertEqual
-	AssertLen
+	AssertTypeContains = iota
+	AssertTypeEqual
+	AssertTypeLen
 )
 
 func TestParserOrg(t *testing.T) {
 	assertParamsMap := AssertParamsMap{
 		"Registrar": {
-			{TargetField: "DomainName", ExpectedResult: "WIKIPEDIA.ORG", AssertType: AssertEqual},
-			{TargetField: "DomainDNSSEC", ExpectedResult: "unsigned", AssertType: AssertEqual},
-			{TargetField: "RegistrarName", ExpectedResult: "MarkMonitor Inc.", AssertType: AssertEqual},
-			{TargetField: "WhoisServer", ExpectedResult: "whois.markmonitor.com", AssertType: AssertEqual},
-			{TargetField: "NameServers", ExpectedResult: "NS2.WIKIMEDIA.ORG", AssertType: AssertContains},
-			{TargetField: "Emails", ExpectedResult: "abusecomplaints@markmonitor.com", AssertType: AssertEqual},
-			{TargetField: "RegistrarID", ExpectedResult: 3, AssertType: AssertLen},
+			{TargetField: "DomainName", ExpectedResult: "WIKIPEDIA.ORG", AssertType: AssertTypeEqual},
+			{TargetField: "DomainDNSSEC", ExpectedResult: "unsigned", AssertType: AssertTypeEqual},
+			{TargetField: "RegistrarName", ExpectedResult: "MarkMonitor Inc.", AssertType: AssertTypeEqual},
+			{TargetField: "WhoisServer", ExpectedResult: "whois.markmonitor.com", AssertType: AssertTypeEqual},
+			{TargetField: "NameServers", ExpectedResult: "NS2.WIKIMEDIA.ORG", AssertType: AssertTypeContains},
+			{TargetField: "Emails", ExpectedResult: "abusecomplaints@markmonitor.com", AssertType: AssertTypeEqual},
+			{TargetField: "RegistrarID", ExpectedResult: 3, AssertType: AssertTypeLen},
 		},
 		"Registrant": {
-			{TargetField: "Organization", ExpectedResult: "Wikimedia Foundation, Inc.", AssertType: AssertEqual},
+			{TargetField: "Organization", ExpectedResult: "Wikimedia Foundation, Inc.", AssertType: AssertTypeEqual},
 		},
 	}
 
@@ -68,11 +67,11 @@ func testParser(t *testing.T, parser *Parser, assertParamsMap AssertParamsMap, i
 				FieldByName(assertParams.TargetField).Interface()
 			assertMsg = fmt.Sprintf(assertMsgFormat, parserName, fieldName, assertParams.TargetField, inputFilepath)
 			switch assertParams.AssertType {
-			case AssertContains:
+			case AssertTypeContains:
 				assert.Contains(t, actualField, assertParams.ExpectedResult, assertMsg)
-			case AssertEqual:
+			case AssertTypeEqual:
 				assert.Equal(t, assertParams.ExpectedResult, actualField, assertMsg)
-			case AssertLen:
+			case AssertTypeLen:
 				assert.Len(t, actualField, assertParams.ExpectedResult.(int), assertMsg)
 			}
 		}
