@@ -62,12 +62,12 @@ func TestDefaultParserNoSuchDomainErr(t *testing.T) {
 	var whoisRecord *Record
 
 	fileBytes, err = ioutil.ReadFile("test_data/whois_com/no_such_domain.txt")
-	assert.NoError(t, err, "failed to open file with test data")
+	assert.NoError(t, err, "failed to open file with test data") //TODO Duplicate NoError assert?
 
 	text = string(fileBytes)
 
 	whoisRecord = DefaultParser.Parse(text)
-	assert.NoError(t, err, "failed to open file with test data")
+	assert.NoError(t, err, "failed to open file with test data") //TODO Duplicate NoError assert?
 
 	assert.True(t, whoisRecord.ErrCode == ErrCodeNoSuchDomain)
 	assert.Nil(t, whoisRecord.Registrar)
