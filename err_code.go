@@ -22,7 +22,7 @@ const (
 	// ErrCodeEmptyWhois is returned when the whois text is empty
 	ErrCodeEmptyWhois ErrCode = 5
 
-	// ErrCodeNoErrorRules is returned when the error checking regular expressions
+	// ErrCodeNoErrorRegex is returned when the error checking regular expressions
 	// are not set for current parser
 	ErrCodeNoErrorRegex ErrCode = 6
 )
