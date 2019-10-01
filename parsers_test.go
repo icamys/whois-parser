@@ -77,3 +77,46 @@ func testParser(t *testing.T, parser *Parser, assertParamsMap AssertParamsMap, i
 		}
 	}
 }
+
+func TestParserOrgNoSuchDomainErr(t *testing.T) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisRecord *Record
+
+	fileBytes, err = ioutil.ReadFile("test_data/whois_org/no_such_domain.txt")
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisRecord = orgParser.Parse(text)
+
+	assert.True(t, whoisRecord.ErrCode == ErrCodeNoSuchDomain)
+	assert.Nil(t, whoisRecord.Registrar)
+	assert.Nil(t, whoisRecord.Registrant)
+	assert.Nil(t, whoisRecord.Bill)
+	assert.Nil(t, whoisRecord.Admin)
+	assert.Nil(t, whoisRecord.Tech)
+}
+
+func TestParserOrgMalformedRequest(t *testing.T) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisRecord *Record
+
+	fileBytes, err = ioutil.ReadFile("test_data/whois_org/malformed_request.txt")
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisRecord = orgParser.Parse(text)
+	assert.NoError(t, err, "failed to open file with test data")
+
+	assert.True(t, whoisRecord.ErrCode == ErrCodeMalformedRequest)
+	assert.Nil(t, whoisRecord.Registrar)
+	assert.Nil(t, whoisRecord.Registrant)
+	assert.Nil(t, whoisRecord.Bill)
+	assert.Nil(t, whoisRecord.Admin)
+	assert.Nil(t, whoisRecord.Tech)
+}
