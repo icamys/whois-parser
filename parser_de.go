@@ -9,7 +9,7 @@ var deParser = &Parser{
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`Status: free`),
-		RateLimit:        regexp.MustCompile(`Connection reset by peer`),
+		RateLimit:        regexp.MustCompile(`Connection resets by peer`),
 		MalformedRequest: regexp.MustCompile(`Status: invalid`),
 	},
 
