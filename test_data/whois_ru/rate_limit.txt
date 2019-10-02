@@ -1,0 +1,5 @@
+
+% You have exceeded allowed connection rate.
+% Please try to connect later.
+% See http://www.ripn.net/about/en/servpol.html#3.2
+% for details.

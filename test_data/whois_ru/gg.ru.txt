@@ -1,0 +1,18 @@
+% By submitting a query to RIPN's Whois Service
+% you agree to abide by the following terms of use:
+% http://www.ripn.net/about/servpol.html#3.2 (in Russian)
+% http://www.ripn.net/about/en/servpol.html#3.2 (in English).
+
+domain:        GG.RU
+nserver:       ns1.privateperson.ru.
+nserver:       ns2.privateperson.ru.
+state:         REGISTERED, DELEGATED, VERIFIED
+org:           Private Person
+registrar:     SALENAMES-RU
+admin-contact: https://partner.salenames.ru/contact_admin.khtml
+created:       2001-12-03T21:00:00Z
+paid-till:     2019-12-04T21:00:00Z
+free-date:     2020-01-05
+source:        TCI
+
+Last updated on 2019-10-01T12:41:32Z
