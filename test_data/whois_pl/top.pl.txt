@@ -1,0 +1,29 @@
+
+DOMAIN NAME:           top.pl
+registrant type:       organization
+nameservers:           ns01.redefine.pl.
+                       ns02.redefine.pl.
+created:               1997.04.14 13:00:00
+last modified:         2018.11.20 16:09:18
+renewal date:          2019.12.31 13:00:00
+
+option created:        2013.12.20 09:08:33
+option expiration date:       2019.12.20 09:08:33
+
+dnssec:                Unsigned
+
+
+REGISTRAR:
+nazwa.pl sp. z o.o.
+ul. Mieczysława Medweckiego 17
+31-870 Kraków
+Polska/Poland
++48.801 33 22 33
++48.22 454 48 10
++48.22 454 48 08
+kontakt@nazwa.pl
+www.nazwa.pl
+
+WHOIS database responses and Registrant data available at: https://dns.pl/en/whois
+
+WHOIS displays data with a delay not exceeding 15 minutes in relation to the .pl Registry system
