@@ -22,18 +22,20 @@ type Registrant struct {
 
 // RegistrantRegex struct with regular expressions used to parse Registrant
 type RegistrantRegex struct {
-	ID           *regexp.Regexp
-	Name         *regexp.Regexp
-	Organization *regexp.Regexp
-	Street       *regexp.Regexp
-	StreetExt    *regexp.Regexp
-	City         *regexp.Regexp
-	Province     *regexp.Regexp
-	PostalCode   *regexp.Regexp
-	Country      *regexp.Regexp
-	Phone        *regexp.Regexp
-	PhoneExt     *regexp.Regexp
-	Fax          *regexp.Regexp
-	FaxExt       *regexp.Regexp
-	Email        *regexp.Regexp
+	SingleRegexAddress bool
+	Address            *regexp.Regexp
+	ID                 *regexp.Regexp
+	Name               *regexp.Regexp
+	Organization       *regexp.Regexp
+	Street             *regexp.Regexp
+	StreetExt          *regexp.Regexp
+	City               *regexp.Regexp
+	Province           *regexp.Regexp
+	PostalCode         *regexp.Regexp
+	Country            *regexp.Regexp
+	Phone              *regexp.Regexp
+	PhoneExt           *regexp.Regexp
+	Fax                *regexp.Regexp
+	FaxExt             *regexp.Regexp
+	Email              *regexp.Regexp
 }
