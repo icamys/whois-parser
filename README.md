@@ -141,3 +141,45 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
 1. Write tests. 
     1. Creating whois fixture `test/whois_co_jp.txt` with valid whois
     2. Write your parser tests in `parser_co_jp_test.go`
+### Single regex for address usage
+1. Set SingleRegexAddress field to true in Registrant field of your parser
+    ```
+       registrantRegex: &RegistrantRegex{
+            SingleRegexAddress: true,
+         },
+    ```
+1. Use regex with group naming:
+    2. For ```Street``` field use ``street`` name
+    2. For ```StreetExt``` field use ``StreetExt`` name
+    2. For ```City``` field use ``city`` name
+    2. For ```PostalCode``` field use ``postalCode`` name
+    2. For ```Province``` field use ``province`` name
+    2. For ```Country``` field use ``country`` name
+    
+    Example:
+    ```
+        (?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat
+    ```
+    Missing groups will set by empty value.
+1. Set Address field with your regex:
+    ```
+        registrantRegex: &RegistrantRegex{
+            SingleRegexAddress: true,
+            Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+           },
+    ```
+1. Any other address field will be ignored
+    ```
+        registrantRegex: &RegistrantRegex{
+            SingleRegexAddress: true,
+            Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+            City:               regexp.MustCompile(`City (.*)`), //Will be ignored
+        },
+    ```
+### Input text formatting
+By default parser remove all lines shorten then lineMinLen and trim text.
+
+1. To disable text trim set usefulWhitespaces to true
+    ```
+        usefulWhitespaces: true,
+   ```
