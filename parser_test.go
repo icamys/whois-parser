@@ -35,6 +35,9 @@ func TestDefaultParser(t *testing.T) {
 
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "GOOGLE.COM")
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "google.com")
+	assert.Equal(t, whoisInfo.Registrant.Country, "US")
+	assert.Equal(t, whoisInfo.Registrant.Province, "CA")
+	assert.Equal(t, whoisInfo.Registrant.Organization, "Google LLC")
 
 	assert.Equal(t, "unsigned", whoisInfo.Registrar.DomainDNSSEC)
 	assert.Len(t, whoisInfo.Registrar.DomainStatus, 141)
