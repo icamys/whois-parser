@@ -19,6 +19,19 @@ func TestFindAndJoinStrings(t *testing.T) {
 	assert.True(t, "asd,Asd" == res || "Asd,asd" == res)
 }
 
+func TestParseGeographicalAddress(t *testing.T) {
+	var text string
+	var re *regexp.Regexp
+	var registrant Registrant
+	text = "Address: Troya, Rim, JustAStreet"
+	re = regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`)
+	registrant = Registrant{}
+	parseGeographicalAddress(&registrant, re, &text)
+	assert.Equal(t, "Troya", registrant.Country)
+	assert.Equal(t, "Rim", registrant.City)
+	assert.Equal(t, "JustAStreet", registrant.Street)
+}
+
 func TestDefaultParser(t *testing.T) {
 	var fileBytes []byte
 	var err error
