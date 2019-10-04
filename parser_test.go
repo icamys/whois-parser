@@ -19,6 +19,40 @@ func TestFindAndJoinStrings(t *testing.T) {
 	assert.True(t, "asd,Asd" == res || "Asd,asd" == res)
 }
 
+func TestFillGeoAddress(t *testing.T) {
+	var text string
+	var re *regexp.Regexp
+	var registrant Registrant
+	text = "Address: Troya, Rim, JustAStreet"
+	re = regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`)
+	registrant = Registrant{}
+	fillGeoAddress(&registrant, re, &text)
+	assert.Equal(t, "Troya", registrant.Country)
+	assert.Equal(t, "Rim", registrant.City)
+	assert.Equal(t, "JustAStreet", registrant.Street)
+}
+
+func TestParseRegistrantNilAddressRegex(t *testing.T) {
+	var text string
+	text = "Registrant Country: London"
+	registrantRegex := RegistrantRegex{
+		Country: regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
+	}
+	registrant := parseRegistrant(&text, &registrantRegex)
+	assert.Equal(t, "London", registrant.Country)
+}
+
+func TestParseRegistrantNotNilAddressRegex(t *testing.T) {
+	var text string
+	text = "Address: Troya, Rim, JustAStreet"
+	registrantRegex := RegistrantRegex{
+		Address: regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`),
+		Country: regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
+	}
+	registrant := parseRegistrant(&text, &registrantRegex)
+	assert.Equal(t, "Troya", registrant.Country)
+}
+
 func TestDefaultParser(t *testing.T) {
 	var fileBytes []byte
 	var err error
@@ -35,6 +69,9 @@ func TestDefaultParser(t *testing.T) {
 
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "GOOGLE.COM")
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "google.com")
+	assert.Equal(t, whoisInfo.Registrant.Country, "US")
+	assert.Equal(t, whoisInfo.Registrant.Province, "CA")
+	assert.Equal(t, whoisInfo.Registrant.Organization, "Google LLC")
 
 	assert.Equal(t, "unsigned", whoisInfo.Registrar.DomainDNSSEC)
 	assert.Len(t, whoisInfo.Registrar.DomainStatus, 141)

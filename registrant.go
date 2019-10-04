@@ -22,6 +22,7 @@ type Registrant struct {
 
 // RegistrantRegex struct with regular expressions used to parse Registrant
 type RegistrantRegex struct {
+	Address      *regexp.Regexp
 	ID           *regexp.Regexp
 	Name         *regexp.Regexp
 	Organization *regexp.Regexp
