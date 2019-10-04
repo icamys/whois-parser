@@ -28,8 +28,7 @@ func TestParserIr(t *testing.T) {
 
 	testParser(t, irParser, assertParamsMap, testDataFilepath, parserName)
 }
-
-func TestParserIrNoSuchDomainErr(t *testing.T) {
+func TestParserIrMalformedRequestErr(t *testing.T) {
 	var fileBytes []byte
 	var err error
 	var text string
@@ -42,10 +41,14 @@ func TestParserIrNoSuchDomainErr(t *testing.T) {
 
 	whoisRecord = irParser.Parse(text)
 
-	assert.True(t, whoisRecord.ErrCode == ErrCodeNoSuchDomain)
+	assert.Equal(t, ErrCodeMalformedRequest, whoisRecord.ErrCode)
 	assert.Nil(t, whoisRecord.Registrar)
 	assert.Nil(t, whoisRecord.Registrant)
 	assert.Nil(t, whoisRecord.Bill)
 	assert.Nil(t, whoisRecord.Admin)
 	assert.Nil(t, whoisRecord.Tech)
+}
+
+func TestParserIrMalformedRequestErrIsEqualToNoSuchDomainErr(t *testing.T) {
+	assert.Equal(t, irParser.errorRegex.NoSuchDomain.String(), irParser.errorRegex.MalformedRequest.String())
 }
