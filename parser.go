@@ -7,13 +7,12 @@ import (
 
 // Parser structure with registrar and registrant sections
 type Parser struct {
-	usefulWhitespaces bool
-	errorRegex        *ParseErrorRegex
-	registrarRegex    *RegistrarRegex
-	registrantRegex   *RegistrantRegex
-	adminRegex        *RegistrantRegex
-	techRegex         *RegistrantRegex
-	billRegex         *RegistrantRegex
+	errorRegex      *ParseErrorRegex
+	registrarRegex  *RegistrarRegex
+	registrantRegex *RegistrantRegex
+	adminRegex      *RegistrantRegex
+	techRegex       *RegistrantRegex
+	billRegex       *RegistrantRegex
 }
 
 // Parse parses whois text
@@ -66,7 +65,7 @@ func (p *Parser) getErrCode(text string) ErrCode {
 	return ErrCodeNoError
 }
 
-// removeShortLines trims spaces if usefulWhitespaces==false and removes too short lines based on lineMinLen
+// removeShortLines trims spaces
 func (p *Parser) removeShortLines(text string) string {
 	var line string
 
@@ -74,11 +73,7 @@ func (p *Parser) removeShortLines(text string) string {
 	newLines := make([]string, 0, len(textLines))
 
 	for i := 0; i < len(textLines); i++ {
-		if p.usefulWhitespaces {
-			line = textLines[i]
-		} else {
-			line = strings.TrimSpace(textLines[i])
-		}
+		line = strings.TrimSpace(textLines[i])
 
 		newLines = append(newLines, line)
 	}
