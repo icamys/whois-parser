@@ -5,7 +5,6 @@ import (
 )
 
 var plParser = &Parser{
-	lineMinLen: 5,
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No information available about domain name`),

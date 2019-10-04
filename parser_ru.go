@@ -5,7 +5,6 @@ import (
 )
 
 var ruParser = &Parser{
-	lineMinLen: 5,
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No entries found for the selected source`),
