@@ -5,7 +5,6 @@ import (
 )
 
 var irParser = &Parser{
-	lineMinLen: 5,
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`no entries found`),
