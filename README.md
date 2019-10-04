@@ -144,12 +144,12 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
 
 ### Single regex for address parsing
 
-1. Set SingleRegexAddress field to true in Registrant field of your parser
+1. Set `SingleRegexAddress` field to `true` in `registrantRegex` field of your parser:
 
     ```
-       registrantRegex: &RegistrantRegex{
-           SingleRegexAddress: true,
-       },
+    registrantRegex: &RegistrantRegex{
+        SingleRegexAddress: true,
+    },
     ```
 
 1. Use regex with group naming:
@@ -167,9 +167,9 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     (?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat
     ```
 
-    Missing groups will set by empty value.
+    Here all address regex groups are optional. If any group name is missing, the value ... // todo
 
-1. Set Address field with your regex:
+1. Set the `Address` field regex:
 
     ```
     registrantRegex: &RegistrantRegex{
@@ -178,11 +178,12 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     },
     ```
 
-1. Any other address field will be ignored
+1. If `SingleRegexAddress` is set to `true`, any other address regexes except `Address` will be ignored:
+
     ```
     registrantRegex: &RegistrantRegex{
         SingleRegexAddress: true,
         Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-        City:               regexp.MustCompile(`City (.*)`), //Will be ignored
+        City:               regexp.MustCompile(`City (.*)`), // This regex will be ignored as SingleRegexAddress == true
     },
     ```
