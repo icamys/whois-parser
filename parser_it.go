@@ -5,8 +5,7 @@ import (
 )
 
 var itParser = &Parser{
-	lineMinLen:        0,
-	usefulWhitespaces: true,
+
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`Status: *AVAILABLE`),
 		RateLimit:        nil,
