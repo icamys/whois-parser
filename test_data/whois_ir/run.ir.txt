@@ -1,0 +1,41 @@
+% Available on web at http://whois.nic.ir/
+% Find the terms and conditions of use on http://www.nic.ir/
+%
+% This server uses UTF-8 as the encoding for requests and responses.
+
+% NOTE: This output has been filtered.
+
+% Information related to 'run.ir'
+
+
+domain:         run.ir
+ascii:          run.ir
+remarks:        (Domain Holder) Behzad Eghtesad
+remarks:        (Domain Holder Address) No. 37, Sadeghi St., Aazadi Ave.,, Tehran, Tehran, IR
+holder-c:       be55-irnic
+admin-c:        be55-irnic
+tech-c:         mg2992-irnic
+bill-c:         ra1722-irnic
+nserver:        NS5.ICH-4.COM
+nserver:        NS6.ICH-4.COM
+last-updated:   2018-06-17
+expire-date:    2021-04-19
+source:         IRNIC # Filtered
+
+nic-hdl:        be55-irnic
+person:         Behzad Eghtesad
+e-mail:         channelplus@gmail.com
+address:        No. 37, Sadeghi St., Aazadi Ave.,, Tehran, Tehran, IR
+phone:          021 66000213
+source:         IRNIC # Filtered
+
+nic-hdl:        mg2992-irnic
+person:         Mirrahim Ghorashi Zadeh
+org:            home
+e-mail:         mirrahim.ghoryshi@hotmail.com
+source:         IRNIC # Filtered
+
+nic-hdl:        ra1722-irnic
+org:            Rayan Dadeh Negar Dena
+e-mail:         rayan@talahost.com
+source:         IRNIC # Filtered
