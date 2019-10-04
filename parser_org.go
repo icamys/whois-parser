@@ -5,7 +5,6 @@ import (
 )
 
 var orgParser = &Parser{
-	lineMinLen: 5,
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`NOT FOUND`),

@@ -7,7 +7,6 @@ import (
 
 // Parser structure with registrar and registrant sections
 type Parser struct {
-	lineMinLen        int
 	usefulWhitespaces bool
 	errorRegex        *ParseErrorRegex
 	registrarRegex    *RegistrarRegex
@@ -79,10 +78,6 @@ func (p *Parser) removeShortLines(text string) string {
 			line = textLines[i]
 		} else {
 			line = strings.TrimSpace(textLines[i])
-		}
-
-		if len(line) < p.lineMinLen {
-			continue
 		}
 
 		newLines = append(newLines, line)
@@ -218,7 +213,6 @@ func RegisterParser(zone string, parser *Parser) {
 
 // DefaultParser is used in case if no parser for TLD not found
 var DefaultParser = Parser{
-	lineMinLen: 5,
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`^No match for domain "`),
 		RateLimit:        nil,

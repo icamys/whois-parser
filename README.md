@@ -176,10 +176,3 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
             City:               regexp.MustCompile(`City (.*)`), //Will be ignored
         },
     ```
-### Input text formatting
-By default parser remove all lines shorten then lineMinLen and trim text.
-
-1. To disable text trim set usefulWhitespaces to true
-    ```
-        usefulWhitespaces: true,
-   ```
