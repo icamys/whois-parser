@@ -9,7 +9,7 @@ var irParser = &Parser{
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`no entries found`),
 		RateLimit:        nil,
-		MalformedRequest: nil, //whois result for NoSuchDomain and MalformedRequest same
+		MalformedRequest: regexp.MustCompile(`no entries found`),
 	},
 
 	registrarRegex: &RegistrarRegex{
