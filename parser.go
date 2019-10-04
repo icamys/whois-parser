@@ -25,8 +25,6 @@ func (p *Parser) Parse(text string) *Record {
 		return record
 	}
 
-	text = p.removeShortLines(text)
-
 	record.Registrar = parseRegistrar(&text, p.registrarRegex)
 	record.Registrant = parseRegistrant(&text, p.registrantRegex)
 	record.Admin = parseRegistrant(&text, p.adminRegex)
@@ -63,22 +61,6 @@ func (p *Parser) getErrCode(text string) ErrCode {
 	}
 
 	return ErrCodeNoError
-}
-
-// removeShortLines trims spaces
-func (p *Parser) removeShortLines(text string) string {
-	var line string
-
-	textLines := strings.Split(text, "\n")
-	newLines := make([]string, 0, len(textLines))
-
-	for i := 0; i < len(textLines); i++ {
-		line = strings.TrimSpace(textLines[i])
-
-		newLines = append(newLines, line)
-	}
-
-	return strings.Join(newLines[:], "\n")
 }
 
 func parseRegistrar(text *string, re *RegistrarRegex) *Registrar {
