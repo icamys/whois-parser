@@ -1,0 +1,48 @@
+** Domain Name: arneca.com.tr
+
+** Registrant:
+   Arneca Danışmanlık ve Ticaret LTD. ŞTİ.
+   İTÜ Ayazağa Kampüsü ARI2 Teknokent A Blok 4-5
+   Sarıyer
+   İstanbul,34349
+     Türkiye
+   ahmet.akkok@outlook.com
+   + 90-212-2861266-
+   + 90-212-2861266-
+
+
+
+** Administrative Contact:
+NIC Handle              : ddk22-metu
+Organization Name       : Derimod Deri Konfeksiyon Paz. San. Tic.A.Ş
+Address                 : Sahilyolu Beşkardeşler 4.Yol Sok No:12-14
+                          Zeytinburnu - İstanbul
+                          İstanbul,
+                          Türkiye
+Phone                   : + 90-212-5471604-
+Fax                     : Hidden upon user request
+
+
+** Technical Contact:
+NIC Handle              : aa3313-metu
+Person                  : Ahmet Akkök
+Address                 : Hidden upon user request
+Phone                   : Hidden upon user request
+Fax                     : Hidden upon user request
+
+
+** Billing Contact:
+NIC Handle              : aa3313-metu
+Person                  : Ahmet Akkök
+Address                 : Hidden upon user request
+Phone                   : Hidden upon user request
+Fax                     : Hidden upon user request
+
+
+** Domain Servers:
+ns59.domaincontrol.com
+ns60.domaincontrol.com
+
+** Additional Info:
+Created on..............: 2018-May-25.
+Expires on..............: 2023-May-24.
