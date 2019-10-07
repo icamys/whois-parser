@@ -7,24 +7,24 @@ import (
 var brParser = &Parser{
 
 	errorRegex: &ParseErrorRegex{
-		NoSuchDomain:     regexp.MustCompile(`No entries found for the selected source`),
-		RateLimit:        regexp.MustCompile(`You have exceeded allowed connection rate`),
-		MalformedRequest: nil, //MalformedRequest and NoSuchDomain same
+		NoSuchDomain:     regexp.MustCompile(`Invalid query`),
+		RateLimit:        regexp.MustCompile(`Query rate limit exceeded. Reduced information`),
+		MalformedRequest: regexp.MustCompile(`No match for`),
 	},
 
 	registrarRegex: &RegistrarRegex{
-		CreatedDate:    nil,
+		CreatedDate:    regexp.MustCompile(`domain:(?:.*\n)+?created: *(.*)`),
 		DomainDNSSEC:   nil,
 		DomainID:       nil,
-		DomainName:     nil,
-		DomainStatus:   nil,
+		DomainName:     regexp.MustCompile(`domain: *(.*)`),
+		DomainStatus:   regexp.MustCompile(`(?m)^status: *(.*)`),
 		Emails:         nil,
 		ExpirationDate: nil,
-		NameServers:    nil,
+		NameServers:    regexp.MustCompile(`nserver: *(.*)`),
 		ReferralURL:    nil,
-		RegistrarID:    nil,
-		RegistrarName:  nil,
-		UpdatedDate:    nil,
+		RegistrarID:    regexp.MustCompile(`ownerid: *(.*)`),
+		RegistrarName:  regexp.MustCompile(`owner: *(.*)`),
+		UpdatedDate:    regexp.MustCompile(`domain:(?:.*\n)+?changed: *(.*)`),
 		WhoisServer:    nil,
 	},
 }
