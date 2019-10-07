@@ -14,7 +14,7 @@ var inParser = &Parser{
 
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`Creation Date: *(.*)`),
-		DomainDNSSEC:   regexp.MustCompile(`DNSSEC *(.*)`),
+		DomainDNSSEC:   regexp.MustCompile(`DNSSEC: *(.*)`),
 		DomainID:       regexp.MustCompile(`Registry Domain ID: *(.*)`),
 		DomainName:     regexp.MustCompile(`Domain Name: *(.*)`),
 		DomainStatus:   regexp.MustCompile(`Domain Status: *(.*)`),
