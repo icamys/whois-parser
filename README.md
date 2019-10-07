@@ -70,7 +70,7 @@ Before contributing any code please check that following commands have no warnin
 - [x] ua 
 - [x] ir 
 - [x] in 
-- [ ] br 
+- [x] br 
 - [ ] tr 
 - [ ] vn 
 - [ ] uk 
