@@ -1,0 +1,94 @@
+% Request from 176.37.75.236
+% This is the Ukrainian Whois query server #B.
+% The Whois is subject to Terms of use
+% See https://hostmaster.ua/services/
+%
+% IN THE PROCESS OF DELEGATION OF A DOMAIN NAME,
+% THE REGISTRANT IS AN ENTITY WHO USES AND MANAGES A CERTAIN DOMAIN NAME,
+% AND THE REGISTRAR IS A BUSINESS ENTITY THAT PROVIDES THE REGISTRANT
+% WITH THE SERVICES NECESSARY FOR THE TECHNICAL MAINTENANCE OF THE REGISTRATION AND OPERATION OF THE DOMAIN NAME.
+% FOR INFORMATION ABOUT THE REGISTRANT OF THE DOMAIN NAME, YOU SHOULD CONTACT THE REGISTRAR.
+
+domain:           viyar.ua
+dom-public:       NO
+license:          169504
+mnt-by:           ua.nic
+nserver:          ns10.uadns.com
+nserver:          ns11.uadns.com
+nserver:          ns12.uadns.com
+status:           ok
+created:          2013-08-09 13:13:06+03
+modified:         2019-07-10 12:54:59+03
+expires:          2020-08-09 13:13:06+03
+source:           UAEPP
+
+% Registrar:
+% ==========
+registrar:        ua.nic
+organization:     NIC.UA LLC
+organization-loc: ТОВ "НІК.ЮЕЙ"
+url:              http://nic.ua
+city:             Dnipro
+country:          UA
+abuse-email:      abuse@nic.ua
+abuse-phone:      +380445933222
+abuse-postal:     Ukraine 49000 Dnipro PO/BOX 80
+abuse-postal-loc: Україна 49000 Дніпро а/с 80
+source:           UAEPP
+
+% Registrant:
+% ===========
+person:           not published
+person-loc:       not published
+e-mail:           not published
+address:          not published
+address-loc:      not published
+phone:            not published
+mnt-by:           ua.nic
+status:           ok
+status:           linked
+created:          2014-03-31 17:47:41+03
+source:           UAEPP
+
+
+% Administrative Contacts:
+% =======================
+person:           not published
+person-loc:       not published
+e-mail:           not published
+address:          not published
+address-loc:      not published
+phone:            not published
+mnt-by:           ua.nic
+status:           ok
+status:           linked
+created:          2014-03-31 17:09:45+03
+source:           UAEPP
+
+
+% Technical Contacts:
+% ===================
+person:           NIC.UA LLC
+person-loc:       ТОВ "НІК.ЮЕЙ"
+organization:     n\a
+organization-loc: ТОВ "НІК.ЮЕЙ"
+e-mail:           support@nic.ua
+address:          Plehanova
+address:          DNIPRO
+postal-code:      04050
+country:          UA
+address-loc:      Plehanova
+address-loc:      DNIPRO
+country-loc:      UA
+phone:            +380.445933222
+fax:              +380.445937569
+mnt-by:           ua.nic
+status:           ok
+status:           linked
+created:          2014-03-31 17:32:45+03
+modified:         2018-02-22 13:27:19+02
+source:           UAEPP
+
+
+
+% Query time:     40 msec
