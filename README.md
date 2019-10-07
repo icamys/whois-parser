@@ -71,7 +71,7 @@ Before contributing any code please check that following commands have no warnin
 - [x] ir 
 - [x] in 
 - [x] br 
-- [ ] tr 
+- [x] tr 
 - [ ] vn 
 - [ ] uk 
 - [ ] au 
