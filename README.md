@@ -73,7 +73,7 @@ Before contributing any code please check that following commands have no warnin
 - [x] br 
 - [x] tr 
 - [ ] vn 
-- [ ] uk 
+- [x] uk 
 - [ ] au 
 - [ ] info 
 - [ ] co
