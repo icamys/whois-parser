@@ -120,15 +120,15 @@ func parseRegistrant(text *string, re *RegistrantRegex) *Registrant {
 	fillIfFound(&registrant.ID, re.ID, text)
 	fillIfFound(&registrant.Name, re.Name, text)
 	fillIfFound(&registrant.Organization, re.Organization, text)
-	if re.Address != nil {
-		fillGeoAddress(registrant, re.Address, text)
-	} else {
+	if re.Address == nil {
 		fillIfFound(&registrant.Street, re.Street, text)
 		fillIfFound(&registrant.StreetExt, re.StreetExt, text)
 		fillIfFound(&registrant.City, re.City, text)
 		fillIfFound(&registrant.Province, re.Province, text)
 		fillIfFound(&registrant.PostalCode, re.PostalCode, text)
 		fillIfFound(&registrant.Country, re.Country, text)
+	} else {
+		fillGeoAddress(registrant, re.Address, text)
 	}
 	fillIfFound(&registrant.Phone, re.Phone, text)
 	fillIfFound(&registrant.PhoneExt, re.PhoneExt, text)
