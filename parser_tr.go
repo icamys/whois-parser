@@ -11,6 +11,7 @@ var trParser = &Parser{
 		RateLimit:        nil,
 		MalformedRequest: regexp.MustCompile(`Please enter a name`),
 	},
+
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`Created on\.*: *(.*)\.`),
 		DomainDNSSEC:   nil,
@@ -26,6 +27,7 @@ var trParser = &Parser{
 		UpdatedDate:    nil,
 		WhoisServer:    nil,
 	},
+
 	registrantRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Registrant:(?:.*\n)(.*)`),
@@ -42,6 +44,7 @@ var trParser = &Parser{
 		FaxExt:       nil,
 		Email:        regexp.MustCompile(`Registrant:(?:.*\n){6}(.*)`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Administrative Contact:(?:.*\n)+?(?:Person *: *(.*))`),
@@ -58,6 +61,7 @@ var trParser = &Parser{
 		FaxExt:       nil,
 		Email:        nil,
 	},
+
 	techRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Technical Contact:(?:.*\n)+?(?:Person *: *(.*))`),
@@ -74,6 +78,7 @@ var trParser = &Parser{
 		FaxExt:       nil,
 		Email:        nil,
 	},
+
 	billRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Billing Contact:(?:.*\n)+?(?:Person *: *(.*))`),
