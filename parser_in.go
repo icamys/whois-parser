@@ -27,6 +27,7 @@ var inParser = &Parser{
 		UpdatedDate:    regexp.MustCompile(`Updated Date: *(.*)`),
 		WhoisServer:    regexp.MustCompile(`Registrar WHOIS Server: *(.*)`),
 	},
+
 	registrantRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`Registry Registrant ID: *(.*)`),
 		Name:         regexp.MustCompile(`Registrant Name: *(.*)`),
@@ -43,6 +44,7 @@ var inParser = &Parser{
 		FaxExt:       regexp.MustCompile(`Registrant Fax Ext: *(.*)`),
 		Email:        regexp.MustCompile(`Registrant Email: *(.*)`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`Registry Admin ID: *(.*)`),
 		Name:         regexp.MustCompile(`Admin Name: *(.*)`),
@@ -59,6 +61,7 @@ var inParser = &Parser{
 		FaxExt:       regexp.MustCompile(`Admin Fax Ext: *(.*)`),
 		Email:        regexp.MustCompile(`Admin Email: *(.*)`),
 	},
+
 	techRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`Registry Tech ID: *(.*)`),
 		Name:         regexp.MustCompile(`Tech Name: *(.*)`),
