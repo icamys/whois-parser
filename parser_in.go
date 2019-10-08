@@ -5,7 +5,6 @@ import (
 )
 
 var inParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No Data Found`),
 		RateLimit:        regexp.MustCompile(`Number of allowed queries exceeded`),
