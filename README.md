@@ -61,6 +61,63 @@ Before contributing any code please check that following commands have no warnin
     $ golint .
     ```
 
+#### TLDs list
+
+- [x] com
+- [x] ru 
+- [x] net 
+- [x] org 
+- [x] ua 
+- [x] ir 
+- [x] in 
+- [x] br 
+- [x] tr 
+- [ ] vn 
+- [x] uk 
+- [ ] au 
+- [ ] info 
+- [ ] co
+- [ ] gr 
+- [x] de 
+- [ ] io 
+- [ ] id 
+- [ ] ca 
+- [ ] by 
+- [x] jp 
+- [ ] fr 
+- [ ] tw
+- [ ] xn--p1ai (рф)
+- [ ] me
+- [x] pl
+- [ ] kz 
+- [ ] za
+- [ ] mx
+- [x] it  
+- [ ] eu  
+- [ ] tv 
+- [ ] xyz
+- [ ] es 
+- [ ] il 
+- [ ] th 
+- [ ] nl 
+- [ ] my 
+- [ ] online
+- [ ] biz
+- [ ] pro 
+- [ ] ar
+- [ ] us
+- [ ] club 
+- [ ] edu
+- [ ] pk 
+- [ ] cn 
+- [ ] su
+- [ ] ch  
+- [ ] cl 
+
+Additional:
+
+- [x] co.jp 
+
 #### Adding new parser for a particular TLD
 
 Let's create new parser for TLDs `.jp` and `.co.jp`
