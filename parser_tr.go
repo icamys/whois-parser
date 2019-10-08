@@ -1,11 +1,11 @@
 package whoisparser
 
+//TODO ADD NEW  REGISTRAR FIELDS, FIX GREEDY REGISTRANT REGEXS
 import (
 	"regexp"
 )
 
 var trParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No match found for`),
 		RateLimit:        nil,
@@ -47,8 +47,8 @@ var trParser = &Parser{
 
 	adminRegex: &RegistrantRegex{
 		ID:           nil,
-		Name:         regexp.MustCompile(`Administrative Contact:(?:.*\n)+?(?:Person *: *(.*))`),
-		Organization: regexp.MustCompile(`Administrative Contact:(?:.*\n)+?(?:Organization Name *: *(.*))`),
+		Name:         regexp.MustCompile(`Administrative Contact:\n(?:.+\n)*?(?:Person *: *(.*))`),
+		Organization: regexp.MustCompile(`Administrative Contact:\n(?:.+\n)*?(?:Organization Name *: *(.*))`),
 		Street:       regexp.MustCompile(`Administrative Contact:(?:.*\n)+?(?:Address *: *(.*))`),
 		StreetExt:    nil,
 		City:         regexp.MustCompile(`Administrative Contact:(?:.*\n)+?(?:Address *: *(?:.*\n){2}(.*),)`),

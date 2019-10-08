@@ -12,6 +12,17 @@
 
 
 
+** Registrar:
+NIC Handle              : cth16-metu
+Organization Name       : Çizgi Telekomünikasyon A.Ş.
+Address                 : Gülbahar Mah. Elif Sk. Balkan Cevahir İş Merkezi
+                          No:4 K:3 D:3 Şişli
+                          İstanbul,34390
+                          Türkiye
+Phone                   : + 90-212-2131213-
+Fax                     : + 90-212-3564407
+
+
 ** Administrative Contact:
 NIC Handle              : ddk22-metu
 Organization Name       : Derimod Deri Konfeksiyon Paz. San. Tic.A.Ş
