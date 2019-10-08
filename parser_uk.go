@@ -5,7 +5,6 @@ import (
 )
 
 var ukParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No match for`),
 		RateLimit:        nil,
