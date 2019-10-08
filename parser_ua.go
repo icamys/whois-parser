@@ -21,6 +21,7 @@ var uaParser = &Parser{
 		Emails:         regexp.MustCompile(`abuse-email: *(.*)`),
 		RegistrarName:  regexp.MustCompile(`registrar: *(.*)`),
 	},
+
 	techRegex: &RegistrantRegex{
 		// (?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]) - negative lookahead alternative
 		ID:           nil,
@@ -38,6 +39,7 @@ var uaParser = &Parser{
 		FaxExt:       nil,
 		Email:        regexp.MustCompile(`(?s)Technical Contacts:.*e-mail: *(.*?)\n`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Administrative Contacts:(?:.*\n)+?(?:person|person-loc):\s+(.+(?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]))\n`),
@@ -54,6 +56,7 @@ var uaParser = &Parser{
 		FaxExt:       nil,
 		Email:        regexp.MustCompile(`(?s)Administrative Contacts:.*e-mail: *(.*?)\n`),
 	},
+
 	registrantRegex: &RegistrantRegex{
 		ID:           nil,
 		Name:         regexp.MustCompile(`Registrant:(?:.*\n)+?(?:person|person-loc):\s+(.+(?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]))\n`),
