@@ -5,7 +5,6 @@ import (
 )
 
 var uaParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No entries found for`),
 		RateLimit:        nil,
