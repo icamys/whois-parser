@@ -23,12 +23,12 @@ func TestFillGeoAddress(t *testing.T) {
 	var text string
 	var re *regexp.Regexp
 	var registrant Registrant
-	text = "Address: Troya, Rim, JustAStreet"
+	text = "Address: Troya, Menzoberranzan, JustAStreet"
 	re = regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`)
 	registrant = Registrant{}
 	fillGeoAddress(&registrant, re, &text)
 	assert.Equal(t, "Troya", registrant.Country)
-	assert.Equal(t, "Rim", registrant.City)
+	assert.Equal(t, "Menzoberranzan", registrant.City)
 	assert.Equal(t, "JustAStreet", registrant.Street)
 }
 
