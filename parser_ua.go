@@ -5,6 +5,7 @@ import (
 )
 
 var uaParser = &Parser{
+
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No entries found for`),
 		RateLimit:        nil,
@@ -23,7 +24,6 @@ var uaParser = &Parser{
 	},
 
 	techRegex: &RegistrantRegex{
-		// (?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]) - negative lookahead alternative
 		ID:           nil,
 		Name:         regexp.MustCompile(`Technical Contacts:(?:.*\n)+?(?:person|person-loc):\s+(.+(?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]))\n`),
 		Organization: regexp.MustCompile(`Technical Contacts:(?:.*\n)+?(?:organization|organization-loc):\s+(.+(?:[^n][^\\][^a]|[^n][^\\]a|[^n]\\a|[^n]\\[^a]|n\\[^a]|n[^\\][^a]))\n`),
