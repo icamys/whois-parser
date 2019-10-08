@@ -36,32 +36,7 @@ go get -u github.com/icamys/whois-parser
         fmt.Println(string(whois2b))
     }
 
-## Contributing
-
-#### Self-check
-
-Before contributing any code please check that following commands have no warnings nor errors.
-
-1. Check cyclomatic complexity (15 is max acceptable value):
-
-    ```bash
-    $ gocyclo -over 15 ./
-    ```
-
-1. Run tests:
-
-    ```bash
-    # Use -count=1 to disable cache usage
-    $ go test -count=1 ./...
-    ```
-
-1. Lint code:
-
-    ```
-    $ golint .
-    ```
-
-#### TLDs list
+## Supported zones
 
 - [x] com
 - [x] ru 
@@ -113,10 +88,32 @@ Before contributing any code please check that following commands have no warnin
 - [ ] su
 - [ ] ch  
 - [ ] cl 
-
-Additional:
-
 - [x] co.jp 
+
+## Contributing
+
+#### Self-check
+
+Before contributing any code please check that following commands have no warnings nor errors.
+
+1. Check cyclomatic complexity (15 is max acceptable value):
+
+    ```bash
+    $ gocyclo -over 15 ./
+    ```
+
+1. Run tests:
+
+    ```bash
+    # Use -count=1 to disable cache usage
+    $ go test -count=1 ./...
+    ```
+
+1. Lint code:
+
+    ```
+    $ golint .
+    ```
 
 #### Adding new parser for a particular TLD
 
