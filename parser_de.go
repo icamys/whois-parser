@@ -5,7 +5,6 @@ import (
 )
 
 var deParser = &Parser{
-	lineMinLen: 5,
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`Status: free`),
