@@ -136,7 +136,6 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     
     // Defining new parser with regular expressions for each parsed section
     var jpParser = &Parser{
-        lineMinLen: 5,
     
         errorRegex: &ParseErrorRegex{
             NoSuchDomain:     regexp.MustCompile(`No match!`),
@@ -195,6 +194,43 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
         RegisterParser(".co.jp", coJpParser)
     }
     ```
+   
 1. Write tests. 
     1. Creating whois fixture `test/whois_co_jp.txt` with valid whois
     2. Write your parser tests in `parser_co_jp_test.go`
+
+### Single regex for address parsing
+
+1. Use regex with group naming:
+
+    1. For `Street` field use `street` name
+    1. For `StreetExt` field use `StreetExt` name
+    1. For `City` field use `city` name
+    1. For `PostalCode` field use `postalCode` name
+    1. For `Province` field use `province` name
+    1. For `Country` field use `country` name
+    
+    Example:
+
+    ```
+    (?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat
+    ```
+
+    Here all address regex groups are optional. If any group name is missing, the value will be an empty string.
+
+1. Set the `Address` field regex, example:
+
+    ```
+    registrantRegex: &RegistrantRegex{
+        Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+    },
+    ```
+
+1. If `Address` is not nil, any other address regexes except `Address` will be ignored:
+
+    ```
+    registrantRegex: &RegistrantRegex{
+        Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+        City:               regexp.MustCompile(`City (.*)`), // This regex will be ignored as Address not nil
+    },
+    ```

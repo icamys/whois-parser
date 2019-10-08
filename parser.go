@@ -97,12 +97,16 @@ func parseRegistrant(text *string, re *RegistrantRegex) *Registrant {
 	fillIfFound(&registrant.ID, re.ID, text)
 	fillIfFound(&registrant.Name, re.Name, text)
 	fillIfFound(&registrant.Organization, re.Organization, text)
-	fillIfFound(&registrant.Street, re.Street, text)
-	fillIfFound(&registrant.StreetExt, re.StreetExt, text)
-	fillIfFound(&registrant.City, re.City, text)
-	fillIfFound(&registrant.Province, re.Province, text)
-	fillIfFound(&registrant.PostalCode, re.PostalCode, text)
-	fillIfFound(&registrant.Country, re.Country, text)
+	if re.Address == nil {
+		fillIfFound(&registrant.Street, re.Street, text)
+		fillIfFound(&registrant.StreetExt, re.StreetExt, text)
+		fillIfFound(&registrant.City, re.City, text)
+		fillIfFound(&registrant.Province, re.Province, text)
+		fillIfFound(&registrant.PostalCode, re.PostalCode, text)
+		fillIfFound(&registrant.Country, re.Country, text)
+	} else {
+		fillGeoAddress(registrant, re.Address, text)
+	}
 	fillIfFound(&registrant.Phone, re.Phone, text)
 	fillIfFound(&registrant.PhoneExt, re.PhoneExt, text)
 	fillIfFound(&registrant.Fax, re.Fax, text)
@@ -112,6 +116,24 @@ func parseRegistrant(text *string, re *RegistrantRegex) *Registrant {
 		return nil
 	}
 	return registrant
+}
+
+func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string) {
+	if re != nil {
+		regexMatches := re.FindStringSubmatch(*text)
+		resultMap := make(map[string]string)
+		for i, name := range re.SubexpNames() {
+			if i != 0 && name != "" {
+				resultMap[name] = regexMatches[i]
+			}
+		}
+		registrant.Street = resultMap["street"]
+		registrant.City = resultMap["city"]
+		registrant.PostalCode = resultMap["postalCode"]
+		registrant.StreetExt = resultMap["streetExt"]
+		registrant.Province = resultMap["province"]
+		registrant.Country = resultMap["country"]
+	}
 }
 
 // Parse parses whois text for specified domain. Domain is required here to be able to choose specific parser
