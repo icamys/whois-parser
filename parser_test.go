@@ -44,7 +44,7 @@ func TestParseRegistrantNilAddressRegex(t *testing.T) {
 
 func TestParseRegistrantNotNilAddressRegex(t *testing.T) {
 	var text string
-	text = "Address: Troya, Rim, JustAStreet"
+	text = "Address: Troya, Menzoberranzan, JustAStreet"
 	registrantRegex := RegistrantRegex{
 		Address: regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`),
 		Country: regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
