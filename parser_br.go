@@ -5,7 +5,6 @@ import (
 )
 
 var brParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`Invalid query`),
 		RateLimit:        regexp.MustCompile(`Query rate limit exceeded. Reduced information`),
