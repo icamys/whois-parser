@@ -22,7 +22,7 @@ var trParser = &Parser{
 		NameServers:    nil,
 		ReferralURL:    nil,
 		RegistrarID:    nil,
-		RegistrarName:  nil,
+		RegistrarName:  regexp.MustCompile(`Registrar:\n(?:.+\n)*?(?:Organization Name *: *(.*))`),
 		UpdatedDate:    nil,
 		WhoisServer:    nil,
 	},

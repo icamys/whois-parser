@@ -12,6 +12,7 @@ func TestParserTr(t *testing.T) {
 			{TargetField: "DomainName", ExpectedResult: "arneca.com.tr", AssertType: AssertTypeEqual},
 			{TargetField: "CreatedDate", ExpectedResult: "2018-May-25", AssertType: AssertTypeEqual},
 			{TargetField: "ExpirationDate", ExpectedResult: "2023-May-24", AssertType: AssertTypeEqual},
+			{TargetField: "RegistrarName", ExpectedResult: "Çizgi Telekomünikasyon A.Ş.", AssertType: AssertTypeEqual},
 		},
 		"Registrant": {
 			{TargetField: "Name", ExpectedResult: "Arneca Danışmanlık ve Ticaret LTD. ŞTİ.", AssertType: AssertTypeEqual},
