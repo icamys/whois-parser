@@ -1,0 +1,5 @@
+Please enter a name, a NIC handle, or a domain name, such as "Kerem Yilmaz" or "ke1-metu" or "foo.com.tr"
+Examples:
+    kerem yilmaz     [looks for the name 'kerem yilmaz']
+    ke1-metu     [looks for the handle 'ke1-metu']
+    foo.com.tr     [looks for the domain name 'foo.com.tr']
