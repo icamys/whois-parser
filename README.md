@@ -159,9 +159,9 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     (?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat
     ```
 
-    Here all address regex groups are optional. If any group name is missing, the value will be empty string
+    Here all address regex groups are optional. If any group name is missing, the value will be an empty string.
 
-1. Set the `Address` field regex:
+1. Set the `Address` field regex, example:
 
     ```
     registrantRegex: &RegistrantRegex{
@@ -169,7 +169,7 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     },
     ```
 
-1. If `Address` not nil, any other address regexes except `Address` will be ignored:
+1. If `Address` is not nil, any other address regexes except `Address` will be ignored:
 
     ```
     registrantRegex: &RegistrantRegex{
