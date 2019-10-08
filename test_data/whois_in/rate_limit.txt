@@ -1,0 +1,2 @@
+fgets: Connection reset by peer
+Number of allowed queries exceeded.
