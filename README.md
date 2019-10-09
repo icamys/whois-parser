@@ -4,6 +4,7 @@
 [![GoDoc](https://godoc.org/github.com/icamys/whois-parser?status.svg)](https://godoc.org/github.com/icamys/whois-parser)
 [![Build Status](https://travis-ci.org/icamys/whois-parser.svg?branch=master)](https://travis-ci.org/icamys/whois-parser)
 [![Go Report Card](https://goreportcard.com/badge/github.com/icamys/whois-parser)](https://goreportcard.com/report/github.com/icamys/whois-parser)
+[![codecov](https://codecov.io/gh/icamys/whois-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/icamys/whois-parser)
 
 ## Description
 
