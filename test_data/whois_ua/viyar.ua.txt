@@ -38,12 +38,13 @@ source:           UAEPP
 
 % Registrant:
 % ===========
-person:           not published
+person:           RegTEst1
 person-loc:       not published
-e-mail:           not published
-address:          not published
+e-mail:           REgEmainLTEst
+address:          Address1TEst
+address:          Address2Test
 address-loc:      not published
-phone:            not published
+phone:            Phoen1TEst
 mnt-by:           ua.nic
 status:           ok
 status:           linked
@@ -53,12 +54,12 @@ source:           UAEPP
 
 % Administrative Contacts:
 % =======================
-person:           not published
+person:           Test1
 person-loc:       not published
-e-mail:           not published
+e-mail:           test2@email.test
 address:          not published
 address-loc:      not published
-phone:            not published
+phone:            test41234
 mnt-by:           ua.nic
 status:           ok
 status:           linked
