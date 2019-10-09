@@ -220,7 +220,7 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
 
     ```
     registrantRegex: &RegistrantRegex{
-        Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+        Address:    regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
     },
     ```
 
@@ -228,7 +228,7 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
 
     ```
     registrantRegex: &RegistrantRegex{
-        Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-        City:               regexp.MustCompile(`City (.*)`), // This regex will be ignored as Address not nil
+        Address:    regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+        City:       regexp.MustCompile(`City (.*)`), // This regex will be ignored as Address not nil
     },
     ```
