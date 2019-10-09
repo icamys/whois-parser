@@ -70,7 +70,7 @@ go get -u github.com/icamys/whois-parser
 - [ ] mx
 - [x] it  
 - [ ] eu  
-- [ ] tv 
+- [x] tv 
 - [ ] xyz
 - [ ] es 
 - [ ] il 
