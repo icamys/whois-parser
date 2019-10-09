@@ -10,7 +10,7 @@
 
 Extendable whois parser written in Go.
 
-**This project is in development stage and is not ready for production systems usage.**
+**This project is in development stage and is not ready for production systems usage. Any support will be appreciated.**
 
 #### Installation
 
