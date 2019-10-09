@@ -63,7 +63,7 @@ go get -u github.com/icamys/whois-parser
 - [ ] fr 
 - [ ] tw
 - [ ] xn--p1ai (рф)
-- [ ] me
+- [x] me
 - [x] pl
 - [ ] kz 
 - [ ] za
