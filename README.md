@@ -51,7 +51,7 @@ go get -u github.com/icamys/whois-parser
 - [ ] vn 
 - [x] uk 
 - [ ] au 
-- [ ] info 
+- [x] info 
 - [ ] co
 - [ ] gr 
 - [x] de 
