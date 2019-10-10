@@ -71,7 +71,7 @@ go get -u github.com/icamys/whois-parser
 - [x] it  
 - [ ] eu  
 - [ ] tv 
-- [ ] xyz
+- [x] xyz
 - [ ] es 
 - [ ] il 
 - [ ] th 
