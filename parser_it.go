@@ -5,7 +5,6 @@ import (
 )
 
 var itParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`Status: *AVAILABLE`),
 		RateLimit:        nil,
@@ -27,11 +26,13 @@ var itParser = &Parser{
 		Address:      regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
 		Organization: regexp.MustCompile(`(?ms)Registrant(?:.*?Organization: *(.*?)$.*)\n\n`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		Address:      regexp.MustCompile(`(?ms)Admin Contact(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
 		Organization: regexp.MustCompile(`(?ms)Admin Contact(?:.*?Organization: *(.*?)$.*)\n\n`),
 		Name:         regexp.MustCompile(`(?ms)Admin Contact(?:.*?Name: *(.*?)$.*)\n\n`),
 	},
+
 	techRegex: &RegistrantRegex{
 		Address:      regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
 		Organization: regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Organization: *(.*?)$.*)\n\n`),
