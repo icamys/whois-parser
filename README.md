@@ -48,12 +48,12 @@ go get -u github.com/icamys/whois-parser
 - [x] in 
 - [x] br 
 - [x] tr 
-- [ ] vn 
+- [ ] vn (requires POST request with captcha) https://www.vnnic.vn/en/whois-information?lang=en
 - [x] uk 
 - [ ] au 
-- [ ] info 
+- [x] info 
 - [ ] co
-- [ ] gr 
+- [ ] gr (requires POST request with captcha) https://grweb.ics.forth.gr/public/whois
 - [x] de 
 - [ ] io 
 - [ ] id 
@@ -71,20 +71,20 @@ go get -u github.com/icamys/whois-parser
 - [x] it  
 - [ ] eu  
 - [x] tv 
-- [ ] xyz
+- [x] xyz
 - [ ] es 
 - [ ] il 
 - [ ] th 
 - [ ] nl 
 - [ ] my 
-- [ ] online
+- [x] online
 - [ ] biz
 - [ ] pro 
 - [ ] ar
 - [ ] us
 - [ ] club 
 - [ ] edu
-- [ ] pk 
+- [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK
 - [ ] cn 
 - [ ] su
 - [ ] ch  
