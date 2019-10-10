@@ -57,7 +57,7 @@ go get -u github.com/icamys/whois-parser
 - [x] de 
 - [ ] io 
 - [ ] id 
-- [ ] ca 
+- [x] ca 
 - [ ] by 
 - [x] jp 
 - [ ] fr 
