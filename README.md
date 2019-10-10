@@ -52,7 +52,7 @@ go get -u github.com/icamys/whois-parser
 - [x] uk 
 - [ ] au 
 - [x] info 
-- [ ] co
+- [x] co
 - [ ] gr (requires POST request with captcha) https://grweb.ics.forth.gr/public/whois
 - [x] de 
 - [x] io 
