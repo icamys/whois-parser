@@ -24,21 +24,18 @@ var itParser = &Parser{
 	},
 
 	registrantRegex: &RegistrantRegex{
-		SingleRegexAddress: true,
-		Address:            regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-		Organization:       regexp.MustCompile(`(?ms)Registrant(?:.*?Organization: *(.*?)$.*)\n\n`),
+		Address:      regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+		Organization: regexp.MustCompile(`(?ms)Registrant(?:.*?Organization: *(.*?)$.*)\n\n`),
 	},
 	adminRegex: &RegistrantRegex{
-		SingleRegexAddress: true,
-		Address:            regexp.MustCompile(`(?ms)Admin Contact(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-		Organization:       regexp.MustCompile(`(?ms)Admin Contact(?:.*?Organization: *(.*?)$.*)\n\n`),
-		Name:               regexp.MustCompile(`(?ms)Admin Contact(?:.*?Name: *(.*?)$.*)\n\n`),
+		Address:      regexp.MustCompile(`(?ms)Admin Contact(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+		Organization: regexp.MustCompile(`(?ms)Admin Contact(?:.*?Organization: *(.*?)$.*)\n\n`),
+		Name:         regexp.MustCompile(`(?ms)Admin Contact(?:.*?Name: *(.*?)$.*)\n\n`),
 	},
 	techRegex: &RegistrantRegex{
-		SingleRegexAddress: true,
-		Address:            regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-		Organization:       regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Organization: *(.*?)$.*)\n\n`),
-		Name:               regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Name: *(.*?)$.*)\n\n`),
+		Address:      regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+		Organization: regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Organization: *(.*?)$.*)\n\n`),
+		Name:         regexp.MustCompile(`(?ms)Technical Contacts(?:.*?Name: *(.*?)$.*)\n\n`),
 	},
 }
 
