@@ -1,0 +1,59 @@
+
+*********************************************************************
+* Please note that the following result could be a subgroup of      *
+* the data contained in the database.                               *
+*                                                                   *
+* Additional information can be visualized at:                      *
+* http://web-whois.nic.it                                           *
+* Privacy Information: http://web-whois.nic.it/privacy              *
+*********************************************************************
+
+Domain:             run.it
+Status:             ok / autoRenewPeriod
+Signed:             no
+Created:            1999-09-21 00:00:00
+Last Update:        2019-09-22 00:40:39
+Expire Date:        2019-09-21
+
+Registrant
+  Organization:     Stuart Toomey
+  Address:          1 Coolmine Woods
+                    Dublin
+                    15
+                    IE
+                    IE
+  Created:          2013-06-05 18:36:02
+  Last Update:      2017-11-01 10:36:35
+
+Admin Contact
+  Name:             Stuart Toomey
+  Organization:     Stuart Toomey
+  Address:          1 Coolmine Woods
+                    Dublin
+                    15
+                    IE
+                    IE
+  Created:          2013-06-05 18:36:02
+  Last Update:      2017-11-01 10:36:35
+
+Technical Contacts
+  Name:             Stuart Toomey
+  Organization:     Delta2
+  Address:          1 Coolmine Woods, Blanchardstown
+                    Dublin
+                    15
+                    ZZ
+                    IE
+  Created:          2012-06-08 15:58:52
+  Last Update:      2017-11-01 10:36:58
+
+Registrar
+  Organization:     Stuart Toomey t/a Delta2
+  Name:             DELTA2-REG
+  Web:              http://delta2.net
+  DNSSEC:           no
+
+
+Nameservers
+  ns1.delta2.net
+  ns2.delta2.net
