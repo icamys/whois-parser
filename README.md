@@ -72,6 +72,7 @@ go get -u github.com/icamys/whois-parser
 - [ ] eu  
 - [x] tv 
 - [x] xyz
+- [ ] es (has restriction by whitelist, requires IP registration)
 - [ ] es 
 - [ ] il 
 - [ ] th 
