@@ -1,0 +1,32 @@
+[ JPRS database provides information on network administration. Its use is    ]
+[ restricted to network administration purposes. For further information,     ]
+[ use 'whois -h whois.jprs.jp help'. To suppress Japanese output, add'/e'     ]
+[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]
+
+Domain Information:
+[Domain Name]                   TEST.JP
+
+[Registrant]                    Coach A Co.,Ltd
+
+[Name Server]                   ns-1938.awsdns-50.co.uk
+[Name Server]                   ns-783.awsdns-33.net
+[Name Server]                   ns-289.awsdns-36.com
+[Name Server]                   ns-1419.awsdns-49.org
+[Signing Key]
+
+[Created on]                    2018/06/08
+[Expires on]                    2020/06/30
+[Status]                        Active
+[Last Updated]                  2019/07/01 01:05:07 (JST)
+
+Contact Information:
+[Name]                          SAKURA Internet Inc.
+[Email]                         nic-staff@sakura.ad.jp
+[Web Page]
+[Postal code]                   530-0011
+[Postal Address]                Osaka
+                                Osaka
+                                35F,4-20,ofukacho,kitaku
+[Phone]                         06-6376-4800
+[Fax]
+

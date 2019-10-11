@@ -1,0 +1,31 @@
+                        <JPRS WHOIS HELP>
+
+1. JPRS WHOIS database includes the following type of information in
+   Japan:
+
+        TYPE            Description
+        ----------------------------------------------------------
+        DOM             Domain Information
+        HOST            Host Information
+        CONTACT         Contact Information [only for Organization-type .JP domain names]
+
+2. How to get the information:
+
+        STRING          Broad search over the all types (if available)
+
+To restrict the search to a certain type of information:
+
+        TYPE STRING     See above for types of information
+
+To obtain related information:
+
+        ^STRING         Displays the information that refers the STRING [only for .JP domain names]
+
+3. Use of the information you obtain from JPRS WHOIS is restricted to
+   a purely network operation purposes.
+=======================================================================
+
+*Notice* If you had an intention to search for gTLD domain-related
+information and see this message, it is possible that JPRS WHOIS wasn't
+the right server to specify. In that case, you might be able to re-try
+your search via InterNIC WHOIS.
