@@ -8,7 +8,7 @@ var coJpParser = &Parser{
 
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No match!`),
-		RateLimit:        nil,
+		RateLimit:        regexp.MustCompile(`Cannot process your search request`),
 		MalformedRequest: regexp.MustCompile(`<JPRS WHOIS HELP>`),
 	},
 
