@@ -1,0 +1,52 @@
+
+Cannot process your search request.
+
+Service currently unavailable due to incoming of a large amount of
+requests.
+
+Try again later.
+
+For details, see: https://jprs.jp/about/dom-search/whois/
+
+[ JPRS WHOIS LEGAL DISCLAIMER:                                                 ]
+[                                                                              ]
+[ The WHOIS service (the "Service") offered by Japan Registry Services Co.,    ]
+[ Ltd. (JPRS) and the access to the records in the JPRS WHOIS database (the    ]
+[ "Database") are provided for information purposes and query-based public     ]
+[ access.                                                                      ]
+[                                                                              ]
+[ Neither JPRS nor any of its officers, directors, employees or agents         ]
+[ makes any warranty as to the results to be obtained from use of the          ]
+[ Service. JPRS specifically disclaims all warranties of any kind,             ]
+[ whether express, implied or statutory, including, but not limited to,        ]
+[ any warranties of title, non-infringement, merchantability or fitness        ]
+[ for a particular purpose.                                                    ]
+[ In no event shall JPRS nor anyone else involved in creating, supporting,     ]
+[ producing or delivering the Service be liable to you for any lost            ]
+[ profits or costs, even if JPRS or such person has been advised of the        ]
+[ possibility of such damages.                                                 ]
+[                                                                              ]
+[ JPRS allows you to use the Service only for lawful purposes and that,        ]
+[ under no circumstances shall you use the Service to: (a) allow, enable       ]
+[ or otherwise support the transmission by e-mail, telephone, postal mail,     ]
+[ facsimile or other means of mass unsolicited, commercial advertising or      ]
+[ solicitations to entities other than the data recipient's own existing       ]
+[ customers; or (b) enable high volume, automated, electronic processes        ]
+[ that send queries or data to the systems of any registry operator or         ]
+[ ICANN-accredited registrar, except as reasonably necessary to register       ]
+[ domain names or modify existing registrations.                               ]
+[                                                                              ]
+[ By submitting the query you agree to abide by these terms and further        ]
+[ agree that JPRS may take measures to limit the use of the Service in         ]
+[ order to protect the privacy of its registrants or the integrity of          ]
+[ the Database.                                                                ]
+[                                                                              ]
+[ JPRS reserves the right to modify or change these terms at any time          ]
+[ without prior or subsequent notification of any kind.                        ]
+[                                                                              ]
+[ For further information, use 'whois -h whois.jprs.jp help'.                  ]
+[ To express Japanese output, add '/j' at the end of command,                  ]
+[ e.g. 'whois -h whois.jprs.jp xxx/j'.                                         ]
+[                                                                              ]
+[ For more information on Whois status codes, please visit                     ]
+[ https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en.        ]
