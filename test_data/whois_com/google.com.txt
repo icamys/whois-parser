@@ -75,24 +75,15 @@ Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeletePro
 Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
 Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
 Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
-Registry Registrant ID:
 Registrant Organization: Google LLC
 Registrant State/Province: CA
 Registrant Country: US
 Admin Organization: Google LLC
 Admin State/Province: CA
 Admin Country: US
-Admin Phone: +1.5707088780
-Admin Phone Ext:
-Admin Fax:
 Tech Organization: Google LLC
 Tech State/Province: CA
 Tech Country: US
-Tech Street: 5335 Gate Parkway care of Network Solutions PO Box 459
-Tech City:
-Tech Postal Code:
-Tech Phone:
-Tech Phone Ext:
 Name Server: ns4.google.com
 Name Server: ns2.google.com
 Name Server: ns1.google.com

@@ -73,15 +73,6 @@ func TestDefaultParser(t *testing.T) {
 	assert.Equal(t, whoisInfo.Registrant.Country, "US")
 	assert.Equal(t, whoisInfo.Registrant.Province, "CA")
 	assert.Equal(t, whoisInfo.Registrant.Organization, "Google LLC")
-	assert.Equal(t, whoisInfo.Registrant.ID, "")
-	assert.Equal(t, whoisInfo.Tech.Street, "5335 Gate Parkway care of Network Solutions PO Box 459")
-	assert.Equal(t, whoisInfo.Tech.City, "")
-	assert.Equal(t, whoisInfo.Tech.PostalCode, "")
-	assert.Equal(t, whoisInfo.Tech.Phone, "")
-	assert.Equal(t, whoisInfo.Tech.PhoneExt, "")
-	assert.Equal(t, whoisInfo.Admin.PhoneExt, "")
-	assert.Equal(t, whoisInfo.Admin.Fax, "")
-	assert.Equal(t, whoisInfo.Admin.Phone, "+1.5707088780")
 
 	assert.Equal(t, "unsigned", whoisInfo.Registrar.DomainDNSSEC)
 	assert.Len(t, whoisInfo.Registrar.DomainStatus, 141)
@@ -144,4 +135,22 @@ func TestDefaultParserMalformedRequest(t *testing.T) {
 	assert.Nil(t, whoisRecord.Bill)
 	assert.Nil(t, whoisRecord.Admin)
 	assert.Nil(t, whoisRecord.Tech)
+}
+
+func TestDefaultParserDoesNotCaptureEmptyGroups(t *testing.T) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisInfo *Record
+
+	fileBytes, err = ioutil.ReadFile("test_data/whois_com/run.com.txt")
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisInfo = DefaultParser.Parse(text)
+	assert.Equal(t, whoisInfo.Registrant.Fax, "")
+	assert.Equal(t, whoisInfo.Registrant.ID, "")
+	assert.Equal(t, whoisInfo.Admin.Fax, "")
+
 }
