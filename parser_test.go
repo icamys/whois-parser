@@ -69,6 +69,7 @@ func TestDefaultParser(t *testing.T) {
 
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "GOOGLE.COM")
 	assert.Contains(t, whoisInfo.Registrar.DomainName, "google.com")
+	assert.Contains(t, whoisInfo.Registrar.RegistrarName, "MarkMonitor, Inc.")
 	assert.Equal(t, whoisInfo.Registrant.Country, "US")
 	assert.Equal(t, whoisInfo.Registrant.Province, "CA")
 	assert.Equal(t, whoisInfo.Registrant.Organization, "Google LLC")
@@ -134,4 +135,22 @@ func TestDefaultParserMalformedRequest(t *testing.T) {
 	assert.Nil(t, whoisRecord.Bill)
 	assert.Nil(t, whoisRecord.Admin)
 	assert.Nil(t, whoisRecord.Tech)
+}
+
+func TestDefaultParserDoesNotCaptureEmptyGroups(t *testing.T) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisInfo *Record
+
+	fileBytes, err = ioutil.ReadFile("test_data/whois_com/run.com.txt")
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisInfo = DefaultParser.Parse(text)
+	assert.Equal(t, whoisInfo.Registrant.Fax, "")
+	assert.Equal(t, whoisInfo.Registrant.ID, "")
+	assert.Equal(t, whoisInfo.Admin.Fax, "")
+
 }
