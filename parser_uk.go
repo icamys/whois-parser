@@ -7,7 +7,7 @@ import (
 var ukParser = &Parser{
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`No match for`),
-		RateLimit:        nil,
+		RateLimit:        regexp.MustCompile(`the WHOIS query quota for`),
 		MalformedRequest: regexp.MustCompile(`This domain cannot be registered because it contravenes`),
 	},
 

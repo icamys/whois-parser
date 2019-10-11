@@ -66,3 +66,25 @@ func TestParserUkMalformedRequest(t *testing.T) {
 	assert.Nil(t, whoisRecord.Admin)
 	assert.Nil(t, whoisRecord.Tech)
 }
+
+func TestParserUkRateLimit(t *testing.T) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisRecord *Record
+
+	fileBytes, err = ioutil.ReadFile("test_data/whois_uk/rate_limit.txt")
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisRecord = ukParser.Parse(text)
+	assert.NoError(t, err, "failed to open file with test data")
+
+	assert.True(t, whoisRecord.ErrCode == ErrCodeRequestRateLimit)
+	assert.Nil(t, whoisRecord.Registrar)
+	assert.Nil(t, whoisRecord.Registrant)
+	assert.Nil(t, whoisRecord.Bill)
+	assert.Nil(t, whoisRecord.Admin)
+	assert.Nil(t, whoisRecord.Tech)
+}
