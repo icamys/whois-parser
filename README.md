@@ -20,22 +20,29 @@ go get -u github.com/icamys/whois-parser
 
 #### Usage
 
-    package demo
+To try just copy and paste the following example to golang [playground](https://play.golang.org/)
+(don't forget to check the "imports" flag):
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    whoisparser "github.com/icamys/whois-parser"
+
+)
+
+func main() {
+    domain := "google.com"
+    whoisRaw := "Domain Name: GOOGLE.COM"
     
-    import (
-        "encoding/json"
-        "fmt"
-        whoisparser "github.com/icamys/whois-parser"
-    
-    )
-    
-    func main() {
-        domain := "google.com"
-        whois := "Domain Name: GOOGLE.COM"
-        whoisInfo, _ := whoisparser.Parse(domain, whois)
-        whois2b,_ := json.Marshal(whoisInfo)
-        fmt.Println(string(whois2b))
-    }
+    // whoisRecord is of Record type, see ./record.go
+    whoisRecord := whoisparser.Parse(domain, whoisRaw)
+    whois2b, _ := json.Marshal(whoisRecord)
+    fmt.Println(string(whois2b))
+}
+```
 
 ## Supported zones
 
@@ -198,38 +205,76 @@ Let's create new parser for TLDs `.jp` and `.co.jp`
     1. Creating whois fixture `test/whois_co_jp.txt` with valid whois
     2. Write your parser tests in `parser_co_jp_test.go`
 
-### Single regex for address parsing
+### Parsing address with single regex
 
-1. Use regex with group naming:
+In some cases the whole address is provided in a way that 
+it would be more convenient and performant to parse the address using only one regular expression.
+For this purpose we use [regex named groups](https://www.regular-expressions.info/refext.html).
 
-    1. For `Street` field use `street` name
-    1. For `StreetExt` field use `StreetExt` name
-    1. For `City` field use `city` name
-    1. For `PostalCode` field use `postalCode` name
-    1. For `Province` field use `province` name
-    1. For `Country` field use `country` name
-    
-    Example:
+Use regex group name for particular fields:
+
+| Field | Regex group name |
+|------------|------------------|
+| Street | street |
+| StreetExt | streetExt |
+| City | city |
+| PostalCode | postalCode |
+| Province | province |
+| Country | country |
+
+#### Example
+
+Lets take a look at an example.
+
+1. Suppose we have an address:
+
+    ```
+    Address:          Viale Del Policlinico 123/B
+                      Roma
+                      00263
+                      RM
+                      IT
+    ```
+
+2. We can craft a regular expression as follows:
 
     ```
     (?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat
     ```
+    
+    Here all address regex groups are optional. If any group name is missing, an empty string will be assigned as value.
 
-    Here all address regex groups are optional. If any group name is missing, the value will be an empty string.
+1. Now we assign our crafted regex to some parser structure and the address will be successfully parsed:
 
-1. Set the `Address` field regex, example:
+    ```go
+    var itParser = &Parser{
+        registrantRegex: &RegistrantRegex{
+            Address:    regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
+        },
+        // ...
+    }
+    ```
+
+    Parsing result:
+    
+    ```json
+    {
+        "registrant": {
+            "street" : "Viale Del Policlinico 123/B",
+            "city": "Roma",
+            "province": "RM",
+            "postal_code": "00263",
+            "country": "IT"
+        }
+    }
+    ```
+   
+
+1. Note that if the `Address` field is set, than any other address regex fields will be ignored:
 
     ```
     registrantRegex: &RegistrantRegex{
         Address:    regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-    },
-    ```
-
-1. If `Address` is not nil, any other address regexes except `Address` will be ignored:
-
-    ```
-    registrantRegex: &RegistrantRegex{
-        Address:    regexp.MustCompile(`(?ms)Registrant(?:.*?Address: *(?P<street>.*?)$.*?)\n *(?P<city>.*?)\n *(?P<postalCode>.*?)\n *(?P<province>.*?)\n *(?P<country>.*?)\n.*?Creat`),
-        City:       regexp.MustCompile(`City (.*)`), // This regex will be ignored as Address not nil
+        City:       regexp.MustCompile(`City (.*)`), // This regex will be ignored as Address is set
     },
     ```
