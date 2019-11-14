@@ -1,6 +1,6 @@
 package whoisparser
 
-// ErrCode is a type for parsing error codes
+// ErrCode contains the numeric error code
 type ErrCode int
 
 const (

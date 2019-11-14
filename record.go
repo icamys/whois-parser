@@ -1,6 +1,6 @@
 package whoisparser
 
-// Record structure with info about registars and registants
+// Record is a structure that contains parsed info for particular whois sections
 type Record struct {
 	ErrCode    ErrCode     `json:"error_code,omitempty"`
 	Registrar  *Registrar  `json:"registrar,omitempty"`

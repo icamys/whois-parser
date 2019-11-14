@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Parser structure with registrar and registrant sections
+// Parser represents a structure with regular expressions for specific whois sections
 type Parser struct {
 	errorRegex      *ParseErrorRegex
 	registrarRegex  *RegistrarRegex
@@ -136,7 +136,9 @@ func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string) {
 	}
 }
 
-// Parse parses whois text for specified domain. Domain is required here to be able to choose specific parser
+// Parse parses whois text for specified domain.
+// Domain is used to identify the domain zone and
+// to choose the parser should be used for this zone
 func Parse(domain string, text string) *Record {
 	return parserFor(domain).Parse(text)
 }
@@ -188,7 +190,7 @@ func RegisterParser(zone string, parser *Parser) {
 	parsers[zone] = parser
 }
 
-// DefaultParser is used in case if no parser for TLD not found
+// DefaultParser is used in case if no parser for TLD is found
 var DefaultParser = Parser{
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`^No match for domain "`),

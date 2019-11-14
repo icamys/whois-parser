@@ -2,7 +2,8 @@ package whoisparser
 
 import "regexp"
 
-// Registrant is registered by the registrar
+// Registrant is a structure that stores parsed registrant info.
+// Registrant is registered by the registrar.
 type Registrant struct {
 	ID           string `json:"id,omitempty"`
 	Name         string `json:"name,omitempty"`

@@ -1,6 +1,6 @@
 package whoisparser
 
-// IParser interface for parser extension
+// IParser is the parser interface
 type IParser interface {
 	Parse(string) *Record
 }

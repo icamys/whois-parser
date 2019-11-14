@@ -2,7 +2,8 @@ package whoisparser
 
 import "regexp"
 
-// Registrar registers the registrant
+// Registrar is a structure that stores parsed registrar info.
+// Registrar registers the registrant.
 type Registrar struct {
 	CreatedDate    string `json:"created_date,omitempty"`
 	DomainDNSSEC   string `json:"domain_dnssec,omitempty"`
