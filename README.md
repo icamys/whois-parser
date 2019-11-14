@@ -114,7 +114,7 @@ Before contributing any code please check that following commands have no warnin
 1. Lint code:
 
     ```
-    $ golint .
+    $ golint ./...
     ```
 
 #### Adding new parser for a particular TLD
