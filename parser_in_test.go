@@ -27,7 +27,7 @@ func TestParserIn(t *testing.T) {
 	testDataFilepath := "test_data/whois_in/studicafe.in.txt"
 	parserName := ".in parser"
 
-	testParser(t, inParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, inParser, parserName, testDataFilepath, assertParamsMap)
 }
 func TestParserInMalformedRequestErr(t *testing.T) {
 	var fileBytes []byte

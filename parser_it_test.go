@@ -48,7 +48,7 @@ func TestParserIt(t *testing.T) {
 	testDataFilepath := "test_data/whois_it/run.it.txt"
 	parserName := ".it parser"
 
-	testParser(t, itParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, itParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserItNoSuchDomainErr(t *testing.T) {

@@ -26,7 +26,7 @@ func TestParserIr(t *testing.T) {
 	testDataFilepath := "test_data/whois_ir/run.ir.txt"
 	parserName := ".ir parser"
 
-	testParser(t, irParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, irParser, parserName, testDataFilepath, assertParamsMap)
 }
 func TestParserIrMalformedRequestErr(t *testing.T) {
 	var fileBytes []byte

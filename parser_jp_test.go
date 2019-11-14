@@ -20,7 +20,7 @@ func TestParserJp(t *testing.T) {
 	testDataFilepath := "test_data/whois_jp/test.jp.txt"
 	parserName := ".jp parser"
 
-	testParser(t, jpParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, jpParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserJpNoSuchDomainErr(t *testing.T) {

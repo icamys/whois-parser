@@ -20,7 +20,7 @@ func TestParserPl(t *testing.T) {
 	testDataFilepath := "test_data/whois_pl/top.pl.txt"
 	parserName := ".pl parser"
 
-	testParser(t, plParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, plParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserPlNoSuchDomainErr(t *testing.T) {

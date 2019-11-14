@@ -25,7 +25,7 @@ func TestParserRu(t *testing.T) {
 	testDataFilepath := "test_data/whois_ru/gg.ru.txt"
 	parserName := ".ru parser"
 
-	testParser(t, ruParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, ruParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserRuRateLimit(t *testing.T) {

@@ -1,11 +1,67 @@
 package whoisparser
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
+	"reflect"
 	"regexp"
 	"testing"
 )
+
+type AssertParams struct {
+	TargetField    string
+	ExpectedResult interface{}
+	AssertType     int
+}
+
+type AssertParamsMap map[string][]*AssertParams
+
+const (
+	AssertTypeContains = iota
+	AssertTypeEqual
+	AssertTypeLen
+)
+
+func runParserAssertions(
+	t *testing.T,
+	parser *Parser,
+	parserName string,
+	testDataFilePath string,
+	assertParamsMap AssertParamsMap,
+) {
+	var fileBytes []byte
+	var err error
+	var text string
+	var whoisRecord *Record
+	var whoisRecordReflect reflect.Value
+	var assertMsg string
+	var assertMsgFormat = "failed on parser \"%s\"\nstructure \"%s.%s\"\npath to input file: \"%s\""
+
+	fileBytes, err = ioutil.ReadFile(testDataFilePath)
+	assert.NoError(t, err, "failed to open file with test data")
+
+	text = string(fileBytes)
+
+	whoisRecord = parser.Parse(text)
+	whoisRecordReflect = reflect.ValueOf(whoisRecord).Elem()
+	for fieldName, assertParamsList := range assertParamsMap {
+		for _, assertParams := range assertParamsList {
+			actualField := whoisRecordReflect.
+				FieldByName(fieldName).Elem().
+				FieldByName(assertParams.TargetField).Interface()
+			assertMsg = fmt.Sprintf(assertMsgFormat, parserName, fieldName, assertParams.TargetField, testDataFilePath)
+			switch assertParams.AssertType {
+			case AssertTypeContains:
+				assert.Contains(t, actualField, assertParams.ExpectedResult, assertMsg)
+			case AssertTypeEqual:
+				assert.Equal(t, assertParams.ExpectedResult, actualField, assertMsg)
+			case AssertTypeLen:
+				assert.Len(t, actualField, assertParams.ExpectedResult.(int), assertMsg)
+			}
+		}
+	}
+}
 
 func TestFindAndJoinStrings(t *testing.T) {
 	var text string

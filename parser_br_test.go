@@ -22,7 +22,7 @@ func TestParserBr(t *testing.T) {
 	testDataFilepath := "test_data/whois_br/registro.br.txt"
 	parserName := ".br parser"
 
-	testParser(t, brParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, brParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserBrNoSuchDomainErr(t *testing.T) {

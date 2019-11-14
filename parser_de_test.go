@@ -19,7 +19,7 @@ func TestParserDe(t *testing.T) {
 	testDataFilepath := "test_data/whois_de/google.de.txt"
 	parserName := ".de parser"
 
-	testParser(t, deParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, deParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserDeNoSuchDomainErr(t *testing.T) {

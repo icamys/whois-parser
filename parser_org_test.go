@@ -25,7 +25,7 @@ func TestParserOrg(t *testing.T) {
 	testDataFilepath := "test_data/whois_org/wikipedia.org.txt"
 	parserName := ".org parser"
 
-	testParser(t, orgParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, orgParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserOrgNoSuchDomainErr(t *testing.T) {

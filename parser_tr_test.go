@@ -34,7 +34,7 @@ func TestParserTr(t *testing.T) {
 	testDataFilepath := "test_data/whois_tr/arneca.com.tr.txt"
 	parserName := ".tr parser"
 
-	testParser(t, trParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, trParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserTrNoSuchDomainErr(t *testing.T) {

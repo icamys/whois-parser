@@ -56,7 +56,7 @@ func TestParserUa(t *testing.T) {
 	testDataFilepath := "test_data/whois_ua/viyar.ua.txt"
 	parserName := ".ua parser"
 
-	testParser(t, uaParser, assertParamsMap, testDataFilepath, parserName)
+	runParserAssertions(t, uaParser, parserName, testDataFilepath, assertParamsMap)
 }
 
 func TestParserUaNoSuchDomainErr(t *testing.T) {
