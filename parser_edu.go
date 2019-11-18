@@ -5,25 +5,18 @@ import (
 )
 
 var eduParser = &Parser{
-
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`NO MATCH`),
-		RateLimit:        nil,
+		RateLimit:        nil, //failed to call rate-limit for .edu
 		MalformedRequest: regexp.MustCompile(`Invalid domain name`),
 	},
 
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`Domain record activated: *(.+)`),
-		DomainDNSSEC:   nil,
-		DomainID:       nil,
 		DomainName:     regexp.MustCompile(`Domain Name: *(.+)`),
-		DomainStatus:   nil,
 		Emails:         regexp.MustCompile(`Administrative Contact:(\n\t.*)*`),
 		ExpirationDate: regexp.MustCompile(`Domain expires: *(.+)`),
 		NameServers:    regexp.MustCompile(`(?s)Name Servers:\s *(.*?)+?\n\n`),
-		ReferralURL:    nil,
-		RegistrarID:    nil,
-		RegistrarName:  nil,
 		UpdatedDate:    regexp.MustCompile(`Domain record last updated: *(.+)`),
 		WhoisServer:    regexp.MustCompile(`available at: (.*)`),
 	},
