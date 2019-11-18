@@ -6,42 +6,51 @@ import (
 	"testing"
 )
 
-func TestParserRu(t *testing.T) {
+func TestParserEdu(t *testing.T) {
 	assertParamsMap := AssertParamsMap{
 		"Registrar": {
-			{TargetField: "DomainName", ExpectedResult: "GG.RU", AssertType: AssertTypeEqual},
-			{TargetField: "CreatedDate", ExpectedResult: "2001-12-03T21:00:00Z", AssertType: AssertTypeEqual},
-			{TargetField: "DomainStatus", ExpectedResult: "REGISTERED, DELEGATED, VERIFIED", AssertType: AssertTypeEqual},
-			{TargetField: "ExpirationDate", ExpectedResult: "2020-01-05", AssertType: AssertTypeEqual},
-			{TargetField: "NameServers", ExpectedResult: "ns1.privateperson.ru", AssertType: AssertTypeContains},
-			{TargetField: "NameServers", ExpectedResult: "ns2.privateperson.ru", AssertType: AssertTypeContains},
-			{TargetField: "RegistrarName", ExpectedResult: "SALENAMES-RU", AssertType: AssertTypeEqual},
+			{TargetField: "CreatedDate", ExpectedResult: "07-Apr-1998", AssertType: AssertTypeEqual},
+			{TargetField: "DomainName", ExpectedResult: "USG.EDU", AssertType: AssertTypeEqual},
+			{TargetField: "ExpirationDate", ExpectedResult: "31-Jul-2020", AssertType: AssertTypeEqual},
+			{TargetField: "UpdatedDate", ExpectedResult: "26-Sep-2019", AssertType: AssertTypeEqual},
+			{TargetField: "WhoisServer", ExpectedResult: "http://whois.educause.edu", AssertType: AssertTypeEqual},
 		},
+
 		"Registrant": {
-			{TargetField: "Organization", ExpectedResult: "Private Person", AssertType: AssertTypeEqual},
+			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
+		},
+
+		"Admin": {
+			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
+			{TargetField: "Name", ExpectedResult: "Domain Admin", AssertType: AssertTypeEqual},
+		},
+
+		"Tech": {
+			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
+			{TargetField: "Name", ExpectedResult: "", AssertType: AssertTypeEqual},
 		},
 	}
 
-	testDataFilepath := "test_data/whois_ru/gg.ru.txt"
-	parserName := ".ru parser"
+	testDataFilepath := "test_data/whois_edu/usg.edu.txt"
+	parserName := ".edu parser"
 
-	runParserAssertions(t, ruParser, parserName, testDataFilepath, assertParamsMap)
+	runParserAssertions(t, eduParser, parserName, testDataFilepath, assertParamsMap)
 }
 
-func TestParserRuRateLimit(t *testing.T) {
+func TestParserEduNoSuchDomainErr(t *testing.T) {
 	var fileBytes []byte
 	var err error
 	var text string
 	var whoisRecord *Record
 
-	fileBytes, err = ioutil.ReadFile("test_data/whois_ru/rate_limit.txt")
+	fileBytes, err = ioutil.ReadFile("test_data/whois_edu/no_such_domain.txt")
 	assert.NoError(t, err, "failed to open file with test data")
 
 	text = string(fileBytes)
 
-	whoisRecord = ruParser.Parse(text)
+	whoisRecord = eduParser.Parse(text)
 
-	assert.True(t, whoisRecord.ErrCode == ErrCodeRequestRateLimit)
+	assert.True(t, whoisRecord.ErrCode == ErrCodeNoSuchDomain)
 	assert.Nil(t, whoisRecord.Registrar)
 	assert.Nil(t, whoisRecord.Registrant)
 	assert.Nil(t, whoisRecord.Bill)
@@ -49,20 +58,21 @@ func TestParserRuRateLimit(t *testing.T) {
 	assert.Nil(t, whoisRecord.Tech)
 }
 
-func TestParserRuNoSuchDomainErr(t *testing.T) {
+func TestParserEduMalformedRequest(t *testing.T) {
 	var fileBytes []byte
 	var err error
 	var text string
 	var whoisRecord *Record
 
-	fileBytes, err = ioutil.ReadFile("test_data/whois_ru/no_such_domain.txt")
+	fileBytes, err = ioutil.ReadFile("test_data/whois_edu/malformed_request.txt")
 	assert.NoError(t, err, "failed to open file with test data")
 
 	text = string(fileBytes)
 
-	whoisRecord = ruParser.Parse(text)
+	whoisRecord = eduParser.Parse(text)
+	assert.NoError(t, err, "failed to open file with test data")
 
-	assert.True(t, whoisRecord.ErrCode == ErrCodeNoSuchDomain)
+	assert.True(t, whoisRecord.ErrCode == ErrCodeMalformedRequest)
 	assert.Nil(t, whoisRecord.Registrar)
 	assert.Nil(t, whoisRecord.Registrant)
 	assert.Nil(t, whoisRecord.Bill)

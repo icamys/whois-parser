@@ -18,7 +18,7 @@ var eduParser = &Parser{
 		DomainID:       nil,
 		DomainName:     regexp.MustCompile(`Domain Name: *(.+)`),
 		DomainStatus:   nil,
-		Emails:         nil,
+		Emails:         regexp.MustCompile(`Administrative Contact:(\n\t.*)*`),
 		ExpirationDate: regexp.MustCompile(`Domain expires: *(.+)`),
 		NameServers:    regexp.MustCompile(`(?s)Name Servers:\s *(.*?)+?\n\n`),
 		ReferralURL:    nil,
@@ -38,8 +38,8 @@ var eduParser = &Parser{
 	},
 
 	techRegex: &RegistrantRegex{
-		Organization: regexp.MustCompile(`Technical Contact:\n*.+\n\t(.*)`),
-		Name:         regexp.MustCompile(`Technical Contact:\n\t(\n*.+)`)},
+		Organization: regexp.MustCompile(`Technical Contact:\n.*\n\t(.*)`),
+		Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`)},
 }
 
 func init() {
