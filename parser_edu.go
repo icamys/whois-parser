@@ -32,7 +32,8 @@ var eduParser = &Parser{
 
 	techRegex: &RegistrantRegex{
 		Organization: regexp.MustCompile(`Technical Contact:\n.*\n\t(.*)`),
-		Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`)},
+		Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`),
+	},
 }
 
 func init() {
