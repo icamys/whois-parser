@@ -1,0 +1,21 @@
+Domain ID:PANDI-DO522803
+Domain Name:HUMANITARIAN.ID
+Created On:16-Oct-2014 09:43:07 UTC
+Last Updated On:30-Nov-2018 05:57:03 UTC
+Expiration Date:16-Oct-2024 23:59:59 UTC
+Status:ok
+=======================================================
+Sponsoring Registrar Organization:PT INDOSAT MEGA MEDIA
+Sponsoring Registrar City:Jakarta Selatan
+Sponsoring Registrar State/Province:DKI Jakarta
+Sponsoring Registrar Postal Code:12550
+Sponsoring Registrar Country:ID
+Sponsoring Registrar Phone:02178546969
+Sponsoring Registrar FAX:02178546999
+Sponsoring Registrar Website:https://indosatm2.id/
+Sponsoring Registrar Contact Email:optech@indosat.net.id
+Name Server:NS1-03.AZURE-DNS.COM
+Name Server:NS2-03.AZURE-DNS.NET
+Name Server:NS3-03.AZURE-DNS.ORG
+Name Server:NS4-03.AZURE-DNS.INFO
+DNSSEC:Unsigned
