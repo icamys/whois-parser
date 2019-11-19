@@ -5,7 +5,7 @@ import "regexp"
 var auParser = &Parser{
 	errorRegex: &ParseErrorRegex{
 		NoSuchDomain:     regexp.MustCompile(`NOT FOUND`),
-		RateLimit:        nil,
+		RateLimit:        nil, //failed to call rate-limit for .au
 		MalformedRequest: regexp.MustCompile(`Pattern starts with improper character`),
 	},
 
