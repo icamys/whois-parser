@@ -73,6 +73,22 @@ var zaParser = &Parser{
 		FaxExt:       regexp.MustCompile(`Tech Fax Ext: *(.*)`),
 		Email:        regexp.MustCompile(`Tech Email: *(.*)`),
 	},
+
+	billRegex: &RegistrantRegex{
+		ID:           regexp.MustCompile(`Registry Billing ID: *(.*)`),
+		Name:         regexp.MustCompile(`Billing Name: *(.*)`),
+		Organization: regexp.MustCompile(`Billing Organization: *(.*)`),
+		Street:       regexp.MustCompile(`Billing Street: *(.*)`),
+		City:         regexp.MustCompile(`Billing City: *(.*)`),
+		Province:     regexp.MustCompile(`Billing State/Province: *(.*)`),
+		PostalCode:   regexp.MustCompile(`Billing Postal Code: *(.*)`),
+		Country:      regexp.MustCompile(`Billing Country: *(.*)`),
+		Phone:        regexp.MustCompile(`Billing Phone: *(.*)`),
+		PhoneExt:     regexp.MustCompile(`Billing Phone Ext: *(.*)`),
+		Fax:          regexp.MustCompile(`Billing Fax: *(.*)`),
+		FaxExt:       regexp.MustCompile(`Billing Fax Ext: *(.*)`),
+		Email:        regexp.MustCompile(`Billing Email: *(.*)`),
+	},
 }
 
 func init() {

@@ -70,6 +70,22 @@ func TestParserZa(t *testing.T) {
 			{TargetField: "FaxExt", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
 			{TargetField: "Email", ExpectedResult: "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.", AssertType: AssertTypeEqual},
 		},
+
+		"Bill": {
+			{TargetField: "ID", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Name", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Organization", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Street", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "City", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Province", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "PostalCode", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Country", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Phone", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "PhoneExt", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Fax", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "FaxExt", ExpectedResult: "REDACTED", AssertType: AssertTypeEqual},
+			{TargetField: "Email", ExpectedResult: "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.", AssertType: AssertTypeEqual},
+		},
 	}
 
 	testDataFilepath := "test_data/whois_za/google.net.za.txt"
