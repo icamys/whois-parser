@@ -12,25 +12,41 @@ var mxParser = &Parser{
 	},
 
 	registrarRegex: &RegistrarRegex{
-		DomainName:    regexp.MustCompile(`Domain Name:\s*(.+)`),
-		RegistrarName:    regexp.MustCompile(`Registrar:\s*(.+)`),
-		ExpirationDate:    regexp.MustCompile(`Expiration Date:\s*(.+)`),
+		DomainName:     regexp.MustCompile(`Domain Name:\s*(.+)`),
+		RegistrarName:  regexp.MustCompile(`Registrar:\s*(.+)`),
+		ExpirationDate: regexp.MustCompile(`Expiration Date:\s*(.+)`),
 		UpdatedDate:    regexp.MustCompile(`Last Updated On:\s*(.+)`),
 		ReferralURL:    regexp.MustCompile(`URL:\s*(.+)`),
+		NameServers:    regexp.MustCompile(`DNS: *(.*)`),
+		DomainDNSSEC:   regexp.MustCompile(`DS Record: *(.*)`),
 	},
 
 	adminRegex: &RegistrantRegex{
-		//Name:         regexp.MustCompile(`Administrative Contact:\n\t(.+)`),
-		//Organization: regexp.MustCompile(`Administrative Contact:\n*.+\n\t(.*)`),
+		Name:     regexp.MustCompile(`Administrative Contact:(?:.*\s*)Name\.*: *(.*)`),
+		City:     regexp.MustCompile(`Administrative Contact:(?:.*\s.)+City\.*: *(.*)`),
+		Province: regexp.MustCompile(`Administrative Contact:(?:.*\s.)+State\.*: *(.*)`),
+		Country:  regexp.MustCompile(`Administrative Contact:(?:.*\s.)+Country\.*: *(.*)`),
 	},
 
 	registrantRegex: &RegistrantRegex{
-		//Organization: regexp.MustCompile(`(?m)Registrant:\n\t(.*)`),
+		Name:     regexp.MustCompile(`Registrant:(?:.*\s*)Name\.*: *(.*)`),
+		City:     regexp.MustCompile(`Registrant:(?:.*\s.)+City\.*: *(.*)`),
+		Province: regexp.MustCompile(`Registrant:(?:.*\s.)+State\.*: *(.*)`),
+		Country:  regexp.MustCompile(`Registrant:(?:.*\s.)+Country\.*: *(.*)`),
 	},
 
 	techRegex: &RegistrantRegex{
-		//Organization: regexp.MustCompile(`Technical Contact:\n.*\n\t(.*)`),
-		//Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`),
+		Name:     regexp.MustCompile(`Technical Contact:(?:.*\s*)Name\.*: *(.*)`),
+		City:     regexp.MustCompile(`Technical Contact:(?:.*\s.)+City\.*: *(.*)`),
+		Province: regexp.MustCompile(`Technical Contact:(?:.*\s.)+State\.*: *(.*)`),
+		Country:  regexp.MustCompile(`Technical Contact:(?:.*\s.)+Country\.*: *(.*)`),
+	},
+
+	billRegex: &RegistrantRegex{
+		Name:     regexp.MustCompile(`Billing Contact:(?:.*\s*)Name\.*: *(.*)`),
+		City:     regexp.MustCompile(`Billing Contact:(?:.*\s.)+City\.*: *(.*)`),
+		Province: regexp.MustCompile(`Billing Contact:(?:.*\s.)+State\.*: *(.*)`),
+		Country:  regexp.MustCompile(`Billing Contact:(?:.*\s.)+Country\.*: *(.*)`),
 	},
 }
 
