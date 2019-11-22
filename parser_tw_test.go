@@ -9,21 +9,17 @@ import (
 func TestParserTw(t *testing.T) {
 	assertParamsMap := AssertParamsMap{
 		"Registrar": {
-			{TargetField: "CreatedDate", ExpectedResult: "07-Apr-1998", AssertType: AssertTypeEqual},
+			{TargetField: "DomainName", ExpectedResult: "google.tw", AssertType: AssertTypeEqual},
+			{TargetField: "DomainStatus", ExpectedResult: "clientUpdateProhibited,clientTransferProhibited,clientDeleteProhibited", AssertType: AssertTypeEqual},
+			{TargetField: "ExpirationDate", ExpectedResult: "2020-10-31 (YYYY-MM-DD)", AssertType: AssertTypeEqual},
+			{TargetField: "CreatedDate", ExpectedResult: "2005-10-27 (YYYY-MM-DD)", AssertType: AssertTypeEqual},
+			{TargetField: "NameServers", ExpectedResult: "ns1.google.com", AssertType: AssertTypeContains},
+			{TargetField: "RegistrarName", ExpectedResult: "Markmonitor, Inc.", AssertType: AssertTypeEqual},
+			{TargetField: "ReferralURL", ExpectedResult: "http://www.markmonitor.com/", AssertType: AssertTypeEqual},
 		},
 
 		"Registrant": {
-			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
-		},
-
-		"Admin": {
-			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
-			{TargetField: "Name", ExpectedResult: "Domain Admin", AssertType: AssertTypeEqual},
-		},
-
-		"Tech": {
-			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
-			{TargetField: "Name", ExpectedResult: "", AssertType: AssertTypeEqual},
+			{TargetField: "Name", ExpectedResult: "Google Inc.", AssertType: AssertTypeEqual},
 		},
 	}
 
