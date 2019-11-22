@@ -83,7 +83,7 @@ func main() {
 - [ ] es 
 - [x] il 
 - [ ] th 
-- [ ] nl 
+- [x] nl 
 - [ ] my 
 - [x] online
 - [ ] biz
