@@ -88,7 +88,7 @@ func main() {
 - [x] online
 - [ ] biz
 - [ ] pro 
-- [ ] ar
+- [x] ar
 - [ ] us
 - [ ] club 
 - [ ] edu
