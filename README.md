@@ -57,30 +57,32 @@ func main() {
 - [x] tr 
 - [ ] vn (requires POST request with captcha) https://www.vnnic.vn/en/whois-information?lang=en
 - [x] uk 
-- [ ] au 
+- [x] au 
 - [x] info 
 - [x] co
 - [ ] gr (requires POST request with captcha) https://grweb.ics.forth.gr/public/whois
 - [x] de 
 - [x] io 
-- [ ] id 
+- [x] id 
 - [x] ca 
-- [ ] by 
+- [x] by 
 - [x] jp 
-- [ ] fr 
+- [x] fr 
 - [ ] tw
 - [ ] xn--p1ai (рф)
 - [x] me
 - [x] pl
-- [ ] kz 
-- [ ] za
-- [ ] mx
+- [x] kz 
+- [x] za
+- [x] mx
 - [x] it  
-- [ ] eu  
+- [x] eu  
 - [x] tv 
 - [x] xyz
 - [ ] es (has restriction by whitelist, requires IP registration)
 - [ ] es 
+- [x] il 
+- [ ] th 
 - [ ] il 
 - [x] th 
 - [ ] nl 
@@ -268,7 +270,6 @@ Lets take a look at an example.
         }
     }
     ```
-   
 
 1. Note that if the `Address` field is set, than any other address regex fields will be ignored:
 
