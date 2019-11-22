@@ -82,8 +82,8 @@ func main() {
 - [ ] es (has restriction by whitelist, requires IP registration)
 - [ ] es 
 - [x] il 
-- [ ] th 
-- [ ] nl 
+- [x] th 
+- [x] nl 
 - [ ] my 
 - [x] online
 - [x] biz
