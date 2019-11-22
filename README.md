@@ -96,7 +96,7 @@ func main() {
 - [ ] cn 
 - [ ] su
 - [ ] ch  
-- [ ] cl 
+- [x] cl 
 - [x] co.jp 
 
 ## Contributing
