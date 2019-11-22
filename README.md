@@ -94,7 +94,7 @@ func main() {
 - [ ] edu
 - [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK
 - [ ] cn 
-- [ ] su
+- [x] su
 - [ ] ch  
 - [ ] cl 
 - [x] co.jp 
