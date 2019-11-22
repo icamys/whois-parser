@@ -1,0 +1,54 @@
+% The data in the WHOIS database of the .il registry is provided
+% by ISOC-IL for information purposes, and to assist persons in
+% obtaining information about or related to a domain name
+% registration record. ISOC-IL does not guarantee its accuracy.
+% By submitting a WHOIS query, you agree that you will use this
+% Data only for lawful purposes and that, under no circumstances
+% will you use this Data to: (1) allow, enable, or otherwise
+% support the transmission of mass unsolicited, commercial
+% advertising or solicitations via e-mail (spam);
+% or  (2) enable high volume, automated, electronic processes that
+% apply to ISOC-IL (or its systems).
+% ISOC-IL reserves the right to modify these terms at any time.
+% By submitting this query, you agree to abide by this policy.
+
+query:        mfa.gov.il
+
+reg-name:     mfa
+domain:       mfa.gov.il
+
+descr:        Tech Tehila
+descr:        1 Netanel Lorech st
+descr:        Jerusalem
+descr:        91911
+descr:        Israel
+e-mail:       hostmaster AT tehila.gov.il
+admin-c:      GV-TT3128-IL
+tech-c:       GV-TT3128-IL
+zone-c:       GV-TT3128-IL
+nserver:      dns.gov.il
+nserver:      dns3.gov.il
+validity:     N/A
+DNSSEC:       unsigned
+status:       Transfer Allowed
+changed:      domain-registrar AT isoc.org.il 20111027 (Assigned)
+changed:      domain-registrar AT isoc.org.il 20150121 (Changed)
+changed:      domain-registrar AT isoc.org.il 20150122 (Changed)
+
+person:       Tech Tehila
+address      Prime minister office
+address      1 Netanel Lorech st
+address      Jerusalem
+address      91039
+address      Israel
+phone:        +972 2 6664666
+fax-no:       +972 2 6664650
+e-mail:       Hostmaster AT tehila.gov.il
+nic-hdl:      GV-TT3128-IL
+changed:      Managing Registrar 20111027
+changed:      Managing Registrar 20150122
+
+registrar name: Israel Government
+registrar info:
+
+% Rights to the data above are restricted by copyright.

@@ -1,0 +1,10 @@
+Cadena_Invalida/Invalid_String
+
+&PARAMETROS VALIDOS:
+
+ &NombreObjeto    Busca en la base de datos de NIC Mexico el objeto solicitado.
+ &=NombreDominio  Verifica la disponibilidad de un nombre de dominio.
+ &?               Muestra este mensaje.
+
+&NOTA:
+ &Si se busca informacion sobre un dominio este debe pertenecer al ccTLD .mx

@@ -1,0 +1,80 @@
+Domain Name: google.net.za
+Registry Domain ID: DOM_2WR-NET.ZA
+Registrar WHOIS Server: https://www.zadomains.net/whois
+Registrar URL: https://za.domains/
+Updated Date: 2019-10-30T07:55:01Z
+Creation Date: 2019-10-30T07:54:15Z
+Registry Expiry Date: 2020-10-30T07:54:15Z
+Registrar Registration Expiration Date: 2020-10-30T07:54:15Z
+Registrar: ZA Domains
+Registrar Abuse Contact Email: complaints@zadomains.net
+Registrar Abuse Contact Phone: None
+Reseller:
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID: REDACTED
+Registrant Name: REDACTED
+Registrant Organization: Owen Valentine
+Registrant Street: REDACTED
+Registrant City: REDACTED
+Registrant State/Province: Western Cape
+Registrant Postal Code: REDACTED
+Registrant Country: ZA
+Registrant Phone: REDACTED
+Registrant Phone Ext: REDACTED
+Registrant Fax: REDACTED
+Registrant Fax Ext: REDACTED
+Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.
+Registry Admin ID: REDACTED
+Admin Name: REDACTED
+Admin Organization: REDACTED
+Admin Street: REDACTED
+Admin City: REDACTED
+Admin State/Province: REDACTED
+Admin Postal Code: REDACTED
+Admin Country: REDACTED
+Admin Phone: REDACTED
+Admin Phone Ext: REDACTED
+Admin Fax: REDACTED
+Admin Fax Ext: REDACTED
+Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.
+Registry Tech ID: REDACTED
+Tech Name: REDACTED
+Tech Organization: REDACTED
+Tech Street: REDACTED
+Tech City: REDACTED
+Tech State/Province: REDACTED
+Tech Postal Code: REDACTED
+Tech Country: REDACTED
+Tech Phone: REDACTED
+Tech Phone Ext: REDACTED
+Tech Fax: REDACTED
+Tech Fax Ext: REDACTED
+Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.
+Registry Billing ID: REDACTED
+Billing Name: REDACTED
+Billing Organization: REDACTED
+Billing Street: REDACTED
+Billing City: REDACTED
+Billing State/Province: REDACTED
+Billing Postal Code: REDACTED
+Billing Country: REDACTED
+Billing Phone: REDACTED
+Billing Phone Ext: REDACTED
+Billing Fax: REDACTED
+Billing Fax Ext: REDACTED
+Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin or Tech contacts of the domain name.
+Name Server: ns1.mydnscloud.com
+Name Server: ns2.mydnscloud.com
+Name Server: ns3.mydnscloud.com
+Name Server: ns4.mydnscloud.com
+DNSSEC: unsigned
+ZACR Complaint/s Procedure and Form: https://registry.net.za/content.php?gen=1&contentid=226
+>>> Last update of WHOIS database: 2019-11-20T09:19:17Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+#
+# The use of this Whois facility is subject to the following terms and
+# conditions. https://registry.net.za/whois_terms
+# Copyright (c) ZACR 1995-2019
