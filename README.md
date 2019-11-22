@@ -81,7 +81,7 @@ func main() {
 - [x] xyz
 - [ ] es (has restriction by whitelist, requires IP registration)
 - [ ] es 
-- [ ] il 
+- [x] il 
 - [ ] th 
 - [ ] nl 
 - [ ] my 
@@ -268,7 +268,6 @@ Lets take a look at an example.
         }
     }
     ```
-   
 
 1. Note that if the `Address` field is set, than any other address regex fields will be ignored:
 
