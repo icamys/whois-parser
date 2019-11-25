@@ -88,8 +88,8 @@ func main() {
 - [x] online
 - [x] biz
 - [x] pro 
-- [ ] ar
-- [ ] us
+- [x] ar
+- [x] us
 - [x] club 
 - [ ] edu
 - [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK

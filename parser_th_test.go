@@ -21,8 +21,8 @@ func TestParserTh(t *testing.T) {
 
 		"Registrant": {
 			{TargetField: "Organization", ExpectedResult: "Google Inc.", AssertType: AssertTypeEqual},
-			{TargetField: "Country", ExpectedResult: "Personal Information*", AssertType: AssertTypeEqual},
-			{TargetField: "Street", ExpectedResult: "US", AssertType: AssertTypeEqual},
+			{TargetField: "Country", ExpectedResult: "US", AssertType: AssertTypeEqual},
+			{TargetField: "Street", ExpectedResult: "Personal Information*", AssertType: AssertTypeEqual},
 		},
 
 		"Tech": {

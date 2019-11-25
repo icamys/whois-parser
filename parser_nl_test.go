@@ -9,7 +9,11 @@ import (
 func TestParserNl(t *testing.T) {
 	assertParamsMap := AssertParamsMap{
 		"Registrar": {
-			{TargetField: "CreatedDate", ExpectedResult: "07-Apr-1998", AssertType: AssertTypeEqual},
+			{TargetField: "DomainName", ExpectedResult: "google.nl", AssertType: AssertTypeEqual},
+			{TargetField: "DomainStatus", ExpectedResult: "active", AssertType: AssertTypeEqual},
+			{TargetField: "DomainDNSSEC", ExpectedResult: "no", AssertType: AssertTypeEqual},
+			{TargetField: "NameServers", ExpectedResult: "ns1.google.com", AssertType: AssertTypeContains},
+			{TargetField: "RegistrarName", ExpectedResult: "MarkMonitor Inc.", AssertType: AssertTypeEqual},
 		},
 	}
 
