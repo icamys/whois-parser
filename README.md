@@ -84,18 +84,18 @@ func main() {
 - [x] il 
 - [x] th 
 - [x] nl 
-- [ ] my 
+- [ ] my (connect: Connection timed out with whois client)
 - [x] online
 - [x] biz
 - [x] pro 
 - [ ] ar
 - [ ] us
 - [ ] club 
-- [ ] edu
+- [x] edu
 - [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK
 - [ ] cn 
 - [ ] su
-- [ ] ch  
+- [ ] ch (Requests of this client are not permitted. Please use https://www.nic.ch/whois/ for queries.)
 - [ ] cl 
 - [x] co.jp 
 
