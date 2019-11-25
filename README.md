@@ -68,7 +68,7 @@ func main() {
 - [x] by 
 - [x] jp 
 - [x] fr 
-- [ ] tw
+- [x] tw
 - [ ] xn--p1ai (рф)
 - [x] me
 - [x] pl
@@ -80,7 +80,6 @@ func main() {
 - [x] tv 
 - [x] xyz
 - [ ] es (has restriction by whitelist, requires IP registration)
-- [ ] es 
 - [x] il 
 - [x] th 
 - [x] nl 
@@ -88,15 +87,15 @@ func main() {
 - [x] online
 - [x] biz
 - [x] pro 
-- [ ] ar
-- [ ] us
-- [ ] club 
+- [x] ar
+- [x] us
+- [x] club 
 - [x] edu
 - [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK
-- [ ] cn 
-- [ ] su
+- [x] cn 
+- [x] su
 - [ ] ch (Requests of this client are not permitted. Please use https://www.nic.ch/whois/ for queries.)
-- [ ] cl 
+- [x] cl 
 - [x] co.jp 
 
 ## Contributing

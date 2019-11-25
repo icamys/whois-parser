@@ -1,0 +1,3 @@
+Invalid domain name
+Check you are using UTF-8 encoding for IDN domain names.
+The list of allowed IDN names in .CL is https://www.nic.cl/normativa/CL-IDN-policy.html

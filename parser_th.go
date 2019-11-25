@@ -6,7 +6,7 @@ import (
 
 var thParser = &Parser{
 	errorRegex: &ParseErrorRegex{
-		NoSuchDomain:     regexp.MustCompile(`NO MATCH`),
+		NoSuchDomain:     regexp.MustCompile(`No match found.`),
 		RateLimit:        nil, //failed to call rate-limit for .th
 		MalformedRequest: nil, //MalformedRequest and NoSuchDomain same
 	},
@@ -19,13 +19,13 @@ var thParser = &Parser{
 		DomainStatus:   regexp.MustCompile(`Status:\s*(.+)`),
 		UpdatedDate:    regexp.MustCompile(`Updated date:\s*(.+)`),
 		CreatedDate:    regexp.MustCompile(`Created date:\s*(.+)`),
-		ExpirationDate: regexp.MustCompile(`Domain Holder Street:\s*(.+)`),
+		ExpirationDate: regexp.MustCompile(`Exp date:\s*(.+)`),
 	},
 
 	registrantRegex: &RegistrantRegex{
 		Organization: regexp.MustCompile(`Domain Holder Organization:\s*(.+)`),
 		Country:      regexp.MustCompile(`Domain Holder Country:\s*(.+)`),
-		Street:       regexp.MustCompile(`Domain Holder Country:\s*(.+)`),
+		Street:       regexp.MustCompile(`Domain Holder Street:\s*(.+)`),
 	},
 
 	techRegex: &RegistrantRegex{
