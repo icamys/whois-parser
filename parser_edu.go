@@ -33,7 +33,7 @@ var eduParser = &Parser{
 	techRegex: &RegistrantRegex{
 		Organization: regexp.MustCompile(`Technical Contact:(?:\n.*\n\t)(.*)`),
 		Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`),
-		Email:         regexp.MustCompile(`Technical Contact:(?:.*\s)+(?:\s*)(.*@.*)(?:\s*)`),
+		Email:        regexp.MustCompile(`Technical Contact:(?:.*\s)+(?:\s*)(.*@.*)(?:\s*)`),
 	},
 }
 
