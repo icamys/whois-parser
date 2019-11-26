@@ -14,25 +14,26 @@ var eduParser = &Parser{
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`Domain record activated: *(.+)`),
 		DomainName:     regexp.MustCompile(`Domain Name: *(.+)`),
-		Emails:         regexp.MustCompile(`Administrative Contact:(\n\t.*)*`),
+		Emails:         regexp.MustCompile(`Administrative Contact:(?:.*\s)+(?:\s*)(.*@.*)(?:\s*)Tech`),
 		ExpirationDate: regexp.MustCompile(`Domain expires: *(.+)`),
-		NameServers:    regexp.MustCompile(`(?s)Name Servers:\s *(.*?)+?\n\n`),
+		NameServers:    regexp.MustCompile(`(?s)Name Servers:\s*(.*?)\n\n`),
 		UpdatedDate:    regexp.MustCompile(`Domain record last updated: *(.+)`),
 		WhoisServer:    regexp.MustCompile(`available at: (.*)`),
 	},
 
 	adminRegex: &RegistrantRegex{
-		Name:         regexp.MustCompile(`Administrative Contact:\n\t(.+)`),
-		Organization: regexp.MustCompile(`Administrative Contact:\n*.+\n\t(.*)`),
+		Name:         regexp.MustCompile(`Administrative Contact:\s*(.*)`),
+		Organization: regexp.MustCompile(`Administrative Contact:\s*.*\s*(.*)`),
 	},
 
 	registrantRegex: &RegistrantRegex{
-		Organization: regexp.MustCompile(`(?m)Registrant:\n\t(.*)`),
+		Organization: regexp.MustCompile(`Registrant:(?:.*\s.)(.*)`),
 	},
 
 	techRegex: &RegistrantRegex{
-		Organization: regexp.MustCompile(`Technical Contact:\n.*\n\t(.*)`),
+		Organization: regexp.MustCompile(`Technical Contact:(?:\n.*\n\t)(.*)`),
 		Name:         regexp.MustCompile(`Technical Contact:\n\t(.*)`),
+		Email:         regexp.MustCompile(`Technical Contact:(?:.*\s)+(?:\s*)(.*@.*)(?:\s*)`),
 	},
 }
 
