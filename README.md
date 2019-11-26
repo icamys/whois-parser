@@ -68,7 +68,7 @@ func main() {
 - [x] by 
 - [x] jp 
 - [x] fr 
-- [ ] tw
+- [x] tw
 - [x] xn--p1ai (рф)
 - [x] me
 - [x] pl
@@ -80,23 +80,22 @@ func main() {
 - [x] tv 
 - [x] xyz
 - [ ] es (has restriction by whitelist, requires IP registration)
-- [ ] es 
 - [x] il 
 - [x] th 
 - [x] nl 
-- [ ] my 
+- [ ] my (connect: Connection timed out with whois client)
 - [x] online
 - [x] biz
 - [x] pro 
-- [ ] ar
-- [ ] us
-- [ ] club 
-- [ ] edu
+- [x] ar
+- [x] us
+- [x] club 
+- [x] edu
 - [ ] pk (requires POST request) https://pk6.pknic.net.pk/pk5/lookup.PK
-- [ ] cn 
-- [ ] su
-- [ ] ch  
-- [ ] cl 
+- [x] cn 
+- [x] su
+- [ ] ch (Requests of this client are not permitted. Please use https://www.nic.ch/whois/ for queries.)
+- [x] cl 
 - [x] co.jp 
 
 ## Contributing
