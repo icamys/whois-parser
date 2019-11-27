@@ -1,0 +1,19 @@
+% By submitting a query to RIPN's Whois Service
+% you agree to abide by the following terms of use:
+% http://www.ripn.net/about/servpol.html#3.2 (in Russian) 
+% http://www.ripn.net/about/en/servpol.html#3.2 (in English).
+
+domain:        XN--B1AQCLQ9D.XN--P1AI
+nserver:       ns3.nic.ru.
+nserver:       ns4.nic.ru.
+nserver:       ns8.nic.ru.
+state:         REGISTERED, DELEGATED, VERIFIED
+org:           Administracia Volskogo municipalnogo raiona
+registrar:     RUCENTER-RF
+admin-contact: https://www.nic.ru/whois
+created:       2010-11-11T09:01:55Z
+paid-till:     2020-11-11T09:01:55Z
+free-date:     2020-12-12
+source:        TCI
+
+Last updated on 2019-11-22T15:26:34Z

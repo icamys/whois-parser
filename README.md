@@ -69,7 +69,7 @@ func main() {
 - [x] jp 
 - [x] fr 
 - [x] tw
-- [ ] xn--p1ai (рф)
+- [x] xn--p1ai (рф)
 - [x] me
 - [x] pl
 - [x] kz 
