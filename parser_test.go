@@ -79,23 +79,29 @@ func TestFillGeoAddress(t *testing.T) {
 	var text string
 	var re *regexp.Regexp
 	var registrant Registrant
-	text = "Address: Troya, Menzoberranzan, JustAStreet"
-	re = regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`)
+	text = "Address: Troya, Menzoberranzan, JustAStreet, Empty"
+	re = regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?), (?P<province>.*?))$`)
 	registrant = Registrant{}
-	fillGeoAddress(&registrant, re, &text)
+	skipWordList := []string{"Empty"}
+	fillGeoAddress(&registrant, re, &text, skipWordList)
 	assert.Equal(t, "Troya", registrant.Country)
 	assert.Equal(t, "Menzoberranzan", registrant.City)
 	assert.Equal(t, "JustAStreet", registrant.Street)
+	assert.Equal(t, "", registrant.Province)
 }
 
 func TestParseRegistrantNilAddressRegex(t *testing.T) {
 	var text string
-	text = "Registrant Country: London"
+	text = `Registrant Country: UK
+			Registrant Province: Empty`
 	registrantRegex := RegistrantRegex{
-		Country: regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
+		Country:  regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
+		Province: regexp.MustCompile(`(?i)Registrant Province: *(.+)`),
 	}
-	registrant := parseRegistrant(&text, &registrantRegex)
-	assert.Equal(t, "London", registrant.Country)
+	skipWordList := []string{"Empty"}
+	registrant := parseRegistrant(&text, &registrantRegex, skipWordList)
+	assert.Equal(t, "UK", registrant.Country)
+	assert.Equal(t, "", registrant.Province)
 }
 
 func TestParseRegistrantNotNilAddressRegex(t *testing.T) {
@@ -105,7 +111,8 @@ func TestParseRegistrantNotNilAddressRegex(t *testing.T) {
 		Address: regexp.MustCompile(`Address:(?: (?P<country>.*?), (?P<city>.*?), (?P<street>.*?))$`),
 		Country: regexp.MustCompile(`(?i)Registrant Country: *(.+)`),
 	}
-	registrant := parseRegistrant(&text, &registrantRegex)
+	skipWordList := []string{""}
+	registrant := parseRegistrant(&text, &registrantRegex, skipWordList)
 	assert.Equal(t, "Troya", registrant.Country)
 }
 
