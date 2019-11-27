@@ -123,20 +123,22 @@ func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string, ski
 	if re != nil {
 		regexMatches := re.FindStringSubmatch(*text)
 		resultMap := make(map[string]string)
+		skip := true
+
 		for i, name := range re.SubexpNames() {
 			if i != 0 && name != "" {
-				ok := true
-
 				for _, word := range skipWordList {
-					if word == regexMatches[i] {
-						ok = false
+					skip = word != regexMatches[i]
+
+					if skip {
+						continue
 					}
+					break
 				}
 
-				if ok {
+				if skip {
 					resultMap[name] = regexMatches[i]
 				}
-
 			}
 		}
 		registrant.Street = resultMap["street"]
@@ -167,15 +169,18 @@ func parserFor(domain string) IParser {
 func fillIfFound(field *string, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
 		if val, found := findAndJoinStrings(text, re); found {
-			ok := true
+			skip := true
 
 			for _, word := range skipWordList {
-				if word == val {
-					ok = false
+				skip = word != val
+
+				if skip {
+					continue
 				}
+				break
 			}
 
-			if ok {
+			if skip {
 				*field = val
 			}
 		}
