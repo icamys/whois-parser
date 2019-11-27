@@ -219,6 +219,7 @@ var DefaultParser = Parser{
 		RateLimit:        nil,
 		MalformedRequest: regexp.MustCompile(`^No match for "`),
 	},
+
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`(?i)Creation Date: +(.+)`),
 		DomainDNSSEC:   regexp.MustCompile(`(?i)dnssec: +([\S]+)`),
@@ -234,6 +235,7 @@ var DefaultParser = Parser{
 		UpdatedDate:    regexp.MustCompile(`(?i)Updated Date: +(.+)`),
 		WhoisServer:    regexp.MustCompile(`(?i)Whois Server: +(.+)`),
 	},
+
 	registrantRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Registrant ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Registrant Name: +(.+)`),
@@ -250,6 +252,7 @@ var DefaultParser = Parser{
 		FaxExt:       regexp.MustCompile(`(?i)Registrant Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Registrant Email: +(.+)`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Admin ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Admin Name: +(.+)`),
@@ -266,6 +269,7 @@ var DefaultParser = Parser{
 		FaxExt:       regexp.MustCompile(`(?i)Admin Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Admin Email: +(.+)`),
 	},
+
 	techRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Tech ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Tech Name: +(.+)`),
@@ -281,5 +285,10 @@ var DefaultParser = Parser{
 		Fax:          regexp.MustCompile(`(?i)Tech Fax: +(.+)`),
 		FaxExt:       regexp.MustCompile(`(?i)Tech Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Tech Email: +(.+)`),
+	},
+
+	skipWordList: []string{
+		"REDACTED FOR PRIVACY",
+		"Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.",
 	},
 }
