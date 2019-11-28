@@ -121,25 +121,32 @@ func parseRegistrant(text *string, re *RegistrantRegex, skipWordList []string) *
 
 func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
-		regexMatches := re.FindStringSubmatch(*text)
-		resultMap := make(map[string]string)
-		skip := true
+		var (
+			i            int
+			name         string
+			skipWord     string
+			skip         = false
+			regexMatches = re.FindStringSubmatch(*text)
+			resultMap    = make(map[string]string)
+		)
 
-		for i, name := range re.SubexpNames() {
-			if i != 0 && name != "" {
-				for _, word := range skipWordList {
-					skip = word != regexMatches[i]
+		for i, name = range re.SubexpNames() {
+			if i == 0 || name == "" {
+				continue
+			}
 
-					if skip {
-						continue
-					}
+			for _, skipWord = range skipWordList {
+				if skip = skipWord == regexMatches[i]; skip {
 					break
 				}
-
-				if skip {
-					resultMap[name] = regexMatches[i]
-				}
 			}
+
+			if skip {
+				skip = false
+				continue
+			}
+
+			resultMap[name] = regexMatches[i]
 		}
 		registrant.Street = resultMap["street"]
 		registrant.City = resultMap["city"]
@@ -168,19 +175,22 @@ func parserFor(domain string) IParser {
 
 func fillIfFound(field *string, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
-		if val, found := findAndJoinStrings(text, re); found {
-			skip := true
+		var (
+			found     bool
+			doNotSkip = false
+			skipWord  string
+			val       string
+		)
 
-			for _, word := range skipWordList {
-				skip = word != val
-
-				if skip {
+		if val, found = findAndJoinStrings(text, re); found {
+			for _, skipWord = range skipWordList {
+				if doNotSkip = skipWord != val; doNotSkip {
 					continue
 				}
 				break
 			}
 
-			if skip {
+			if doNotSkip {
 				*field = val
 			}
 		}
@@ -192,14 +202,18 @@ func findAndJoinStrings(text *string, re *regexp.Regexp) (string, bool) {
 		return "", false
 	}
 
-	var keys []string
-	var values = make(map[string]struct{})
+	var (
+		keys   []string
+		values = make(map[string]struct{})
+		res    []string
+		k      string
+	)
 
-	for _, res := range re.FindAllStringSubmatch(*text, -1) {
+	for _, res = range re.FindAllStringSubmatch(*text, -1) {
 		values[res[1]] = struct{}{}
 	}
 
-	for k := range values {
+	for k = range values {
 		keys = append(keys, k)
 	}
 
