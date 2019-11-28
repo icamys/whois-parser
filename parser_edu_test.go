@@ -14,6 +14,8 @@ func TestParserEdu(t *testing.T) {
 			{TargetField: "ExpirationDate", ExpectedResult: "31-Jul-2020", AssertType: AssertTypeEqual},
 			{TargetField: "UpdatedDate", ExpectedResult: "26-Sep-2019", AssertType: AssertTypeEqual},
 			{TargetField: "WhoisServer", ExpectedResult: "http://whois.educause.edu", AssertType: AssertTypeEqual},
+			{TargetField: "Emails", ExpectedResult: "nic-admin@usg.edu", AssertType: AssertTypeEqual},
+			{TargetField: "NameServers", ExpectedResult: "NS3.USG.EDU", AssertType: AssertTypeContains},
 		},
 
 		"Registrant": {
@@ -28,6 +30,7 @@ func TestParserEdu(t *testing.T) {
 		"Tech": {
 			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
 			{TargetField: "Name", ExpectedResult: "", AssertType: AssertTypeEqual},
+			{TargetField: "Email", ExpectedResult: "nic-tech@usg.edu", AssertType: AssertTypeEqual},
 		},
 	}
 
