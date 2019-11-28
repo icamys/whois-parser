@@ -13,6 +13,7 @@ type Parser struct {
 	adminRegex      *RegistrantRegex
 	techRegex       *RegistrantRegex
 	billRegex       *RegistrantRegex
+	skipWordList    []string
 }
 
 // Parse parses whois text
@@ -25,11 +26,11 @@ func (p *Parser) Parse(text string) *Record {
 		return record
 	}
 
-	record.Registrar = parseRegistrar(&text, p.registrarRegex)
-	record.Registrant = parseRegistrant(&text, p.registrantRegex)
-	record.Admin = parseRegistrant(&text, p.adminRegex)
-	record.Tech = parseRegistrant(&text, p.techRegex)
-	record.Bill = parseRegistrant(&text, p.billRegex)
+	record.Registrar = parseRegistrar(&text, p.registrarRegex, p.skipWordList)
+	record.Registrant = parseRegistrant(&text, p.registrantRegex, p.skipWordList)
+	record.Admin = parseRegistrant(&text, p.adminRegex, p.skipWordList)
+	record.Tech = parseRegistrant(&text, p.techRegex, p.skipWordList)
+	record.Bill = parseRegistrant(&text, p.billRegex, p.skipWordList)
 
 	return record
 }
@@ -63,69 +64,89 @@ func (p *Parser) getErrCode(text string) ErrCode {
 	return ErrCodeNoError
 }
 
-func parseRegistrar(text *string, re *RegistrarRegex) *Registrar {
+func parseRegistrar(text *string, re *RegistrarRegex, skipWordList []string) *Registrar {
 	if re == nil {
 		return nil
 	}
 
 	registrar := &Registrar{}
-	fillIfFound(&registrar.CreatedDate, re.CreatedDate, text)
-	fillIfFound(&registrar.DomainDNSSEC, re.DomainDNSSEC, text)
-	fillIfFound(&registrar.DomainID, re.DomainID, text)
-	fillIfFound(&registrar.DomainName, re.DomainName, text)
-	fillIfFound(&registrar.DomainStatus, re.DomainStatus, text)
-	fillIfFound(&registrar.Emails, re.Emails, text)
-	fillIfFound(&registrar.ExpirationDate, re.ExpirationDate, text)
-	fillIfFound(&registrar.NameServers, re.NameServers, text)
-	fillIfFound(&registrar.ReferralURL, re.ReferralURL, text)
-	fillIfFound(&registrar.RegistrarID, re.RegistrarID, text)
-	fillIfFound(&registrar.RegistrarName, re.RegistrarName, text)
-	fillIfFound(&registrar.UpdatedDate, re.UpdatedDate, text)
-	fillIfFound(&registrar.WhoisServer, re.WhoisServer, text)
+	fillIfFound(&registrar.CreatedDate, re.CreatedDate, text, skipWordList)
+	fillIfFound(&registrar.DomainDNSSEC, re.DomainDNSSEC, text, skipWordList)
+	fillIfFound(&registrar.DomainID, re.DomainID, text, skipWordList)
+	fillIfFound(&registrar.DomainName, re.DomainName, text, skipWordList)
+	fillIfFound(&registrar.DomainStatus, re.DomainStatus, text, skipWordList)
+	fillIfFound(&registrar.Emails, re.Emails, text, skipWordList)
+	fillIfFound(&registrar.ExpirationDate, re.ExpirationDate, text, skipWordList)
+	fillIfFound(&registrar.NameServers, re.NameServers, text, skipWordList)
+	fillIfFound(&registrar.ReferralURL, re.ReferralURL, text, skipWordList)
+	fillIfFound(&registrar.RegistrarID, re.RegistrarID, text, skipWordList)
+	fillIfFound(&registrar.RegistrarName, re.RegistrarName, text, skipWordList)
+	fillIfFound(&registrar.UpdatedDate, re.UpdatedDate, text, skipWordList)
+	fillIfFound(&registrar.WhoisServer, re.WhoisServer, text, skipWordList)
 	if *registrar == (Registrar{}) {
 		return nil
 	}
 	return registrar
 }
 
-func parseRegistrant(text *string, re *RegistrantRegex) *Registrant {
+func parseRegistrant(text *string, re *RegistrantRegex, skipWordList []string) *Registrant {
 	if re == nil {
 		return nil
 	}
 
 	registrant := &Registrant{}
-	fillIfFound(&registrant.ID, re.ID, text)
-	fillIfFound(&registrant.Name, re.Name, text)
-	fillIfFound(&registrant.Organization, re.Organization, text)
+	fillIfFound(&registrant.ID, re.ID, text, skipWordList)
+	fillIfFound(&registrant.Name, re.Name, text, skipWordList)
+	fillIfFound(&registrant.Organization, re.Organization, text, skipWordList)
 	if re.Address == nil {
-		fillIfFound(&registrant.Street, re.Street, text)
-		fillIfFound(&registrant.StreetExt, re.StreetExt, text)
-		fillIfFound(&registrant.City, re.City, text)
-		fillIfFound(&registrant.Province, re.Province, text)
-		fillIfFound(&registrant.PostalCode, re.PostalCode, text)
-		fillIfFound(&registrant.Country, re.Country, text)
+		fillIfFound(&registrant.Street, re.Street, text, skipWordList)
+		fillIfFound(&registrant.StreetExt, re.StreetExt, text, skipWordList)
+		fillIfFound(&registrant.City, re.City, text, skipWordList)
+		fillIfFound(&registrant.Province, re.Province, text, skipWordList)
+		fillIfFound(&registrant.PostalCode, re.PostalCode, text, skipWordList)
+		fillIfFound(&registrant.Country, re.Country, text, skipWordList)
 	} else {
-		fillGeoAddress(registrant, re.Address, text)
+		fillGeoAddress(registrant, re.Address, text, skipWordList)
 	}
-	fillIfFound(&registrant.Phone, re.Phone, text)
-	fillIfFound(&registrant.PhoneExt, re.PhoneExt, text)
-	fillIfFound(&registrant.Fax, re.Fax, text)
-	fillIfFound(&registrant.FaxExt, re.FaxExt, text)
-	fillIfFound(&registrant.Email, re.Email, text)
+	fillIfFound(&registrant.Phone, re.Phone, text, skipWordList)
+	fillIfFound(&registrant.PhoneExt, re.PhoneExt, text, skipWordList)
+	fillIfFound(&registrant.Fax, re.Fax, text, skipWordList)
+	fillIfFound(&registrant.FaxExt, re.FaxExt, text, skipWordList)
+	fillIfFound(&registrant.Email, re.Email, text, skipWordList)
 	if *registrant == (Registrant{}) {
 		return nil
 	}
 	return registrant
 }
 
-func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string) {
+func fillGeoAddress(registrant *Registrant, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
-		regexMatches := re.FindStringSubmatch(*text)
-		resultMap := make(map[string]string)
-		for i, name := range re.SubexpNames() {
-			if i != 0 && name != "" {
-				resultMap[name] = regexMatches[i]
+		var (
+			i            int
+			name         string
+			skipWord     string
+			skip         = false
+			regexMatches = re.FindStringSubmatch(*text)
+			resultMap    = make(map[string]string)
+		)
+
+		for i, name = range re.SubexpNames() {
+			if i == 0 || name == "" {
+				continue
 			}
+
+			for _, skipWord = range skipWordList {
+				if skip = skipWord == regexMatches[i]; skip {
+					break
+				}
+			}
+
+			if skip {
+				skip = false
+				continue
+			}
+
+			resultMap[name] = regexMatches[i]
 		}
 		registrant.Street = resultMap["street"]
 		registrant.City = resultMap["city"]
@@ -152,9 +173,25 @@ func parserFor(domain string) IParser {
 	return &DefaultParser
 }
 
-func fillIfFound(field *string, re *regexp.Regexp, text *string) {
+func fillIfFound(field *string, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
-		if val, found := findAndJoinStrings(text, re); found {
+		var (
+			found    bool
+			skip     = false
+			skipWord string
+			val      string
+		)
+
+		if val, found = findAndJoinStrings(text, re); found {
+			for _, skipWord = range skipWordList {
+				if skip = skipWord == val; skip {
+					break
+				}
+			}
+
+			if skip {
+				return
+			}
 			*field = val
 		}
 	}
@@ -165,14 +202,18 @@ func findAndJoinStrings(text *string, re *regexp.Regexp) (string, bool) {
 		return "", false
 	}
 
-	var keys []string
-	var values = make(map[string]struct{})
+	var (
+		keys   []string
+		values = make(map[string]struct{})
+		res    []string
+		k      string
+	)
 
-	for _, res := range re.FindAllStringSubmatch(*text, -1) {
+	for _, res = range re.FindAllStringSubmatch(*text, -1) {
 		values[res[1]] = struct{}{}
 	}
 
-	for k := range values {
+	for k = range values {
 		keys = append(keys, k)
 	}
 
@@ -197,6 +238,7 @@ var DefaultParser = Parser{
 		RateLimit:        nil,
 		MalformedRequest: regexp.MustCompile(`^No match for "`),
 	},
+
 	registrarRegex: &RegistrarRegex{
 		CreatedDate:    regexp.MustCompile(`(?i)Creation Date: +(.+)`),
 		DomainDNSSEC:   regexp.MustCompile(`(?i)dnssec: +([\S]+)`),
@@ -212,6 +254,7 @@ var DefaultParser = Parser{
 		UpdatedDate:    regexp.MustCompile(`(?i)Updated Date: +(.+)`),
 		WhoisServer:    regexp.MustCompile(`(?i)Whois Server: +(.+)`),
 	},
+
 	registrantRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Registrant ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Registrant Name: +(.+)`),
@@ -228,6 +271,7 @@ var DefaultParser = Parser{
 		FaxExt:       regexp.MustCompile(`(?i)Registrant Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Registrant Email: +(.+)`),
 	},
+
 	adminRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Admin ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Admin Name: +(.+)`),
@@ -244,6 +288,7 @@ var DefaultParser = Parser{
 		FaxExt:       regexp.MustCompile(`(?i)Admin Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Admin Email: +(.+)`),
 	},
+
 	techRegex: &RegistrantRegex{
 		ID:           regexp.MustCompile(`(?i)Registry Tech ID: +(.+)`),
 		Name:         regexp.MustCompile(`(?i)Tech Name: +(.+)`),
@@ -259,5 +304,10 @@ var DefaultParser = Parser{
 		Fax:          regexp.MustCompile(`(?i)Tech Fax: +(.+)`),
 		FaxExt:       regexp.MustCompile(`(?i)Tech Fax Ext: +(.+)`),
 		Email:        regexp.MustCompile(`(?i)Tech Email: +(.+)`),
+	},
+
+	skipWordList: []string{
+		"REDACTED FOR PRIVACY",
+		"Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.",
 	},
 }
