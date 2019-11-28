@@ -30,6 +30,7 @@ func TestParserEdu(t *testing.T) {
 		"Tech": {
 			{TargetField: "Organization", ExpectedResult: "Board of Regents of the University System of Georgia", AssertType: AssertTypeEqual},
 			{TargetField: "Name", ExpectedResult: "", AssertType: AssertTypeEqual},
+			{TargetField: "Email", ExpectedResult: "nic-tech@usg.edu", AssertType: AssertTypeEqual},
 		},
 	}
 
