@@ -176,23 +176,23 @@ func parserFor(domain string) IParser {
 func fillIfFound(field *string, re *regexp.Regexp, text *string, skipWordList []string) {
 	if re != nil {
 		var (
-			found     bool
-			doNotSkip = false
-			skipWord  string
-			val       string
+			found    bool
+			skip     = false
+			skipWord string
+			val      string
 		)
 
 		if val, found = findAndJoinStrings(text, re); found {
 			for _, skipWord = range skipWordList {
-				if doNotSkip = skipWord != val; doNotSkip {
-					continue
+				if skip = skipWord == val; skip {
+					break
 				}
-				break
 			}
 
-			if doNotSkip {
-				*field = val
+			if skip {
+				return
 			}
+			*field = val
 		}
 	}
 }
