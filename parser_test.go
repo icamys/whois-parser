@@ -90,6 +90,56 @@ func TestFillGeoAddress(t *testing.T) {
 	assert.Equal(t, "", registrant.Province)
 }
 
+func TestParserForRegisterParserOrderByZoneLengthAsc(t *testing.T) {
+	var (
+		tldPlus2Parser = &DefaultParser
+		tldPlus1Parser = coJpParser
+		tldParser      = jpParser
+	)
+
+	RegisterParser(".ex.co.jp", tldPlus2Parser)
+	RegisterParser(".co.jp", tldPlus1Parser)
+	RegisterParser(".jp", tldParser)
+
+	assert.Equal(t, parserFor("example.ex.co.jp"), tldPlus2Parser)
+	assert.Equal(t, parserFor("example.co.jp"), tldPlus1Parser)
+	assert.Equal(t, parserFor("example.jp"), tldParser)
+
+	assert.NotEqual(t, parserFor("example.co.jp"), tldPlus2Parser)
+	assert.NotEqual(t, parserFor("example.jp"), tldPlus2Parser)
+
+	assert.NotEqual(t, parserFor("example.ex.co.jp"), tldPlus1Parser)
+	assert.NotEqual(t, parserFor("example.jp"), tldPlus1Parser)
+
+	assert.NotEqual(t, parserFor("example.ex.co.jp"), tldParser)
+	assert.NotEqual(t, parserFor("example.co.jp"), tldParser)
+}
+
+func TestParserForRegisterParserOrderByZoneLengthDesc(t *testing.T) {
+	var (
+		tldPlus2Parser = &DefaultParser
+		tldPlus1Parser = coJpParser
+		tldParser      = jpParser
+	)
+
+	RegisterParser(".jp", tldParser)
+	RegisterParser(".co.jp", tldPlus1Parser)
+	RegisterParser(".ex.co.jp", tldPlus2Parser)
+
+	assert.Equal(t, parserFor("example.ex.co.jp"), tldPlus2Parser)
+	assert.Equal(t, parserFor("example.co.jp"), tldPlus1Parser)
+	assert.Equal(t, parserFor("example.jp"), tldParser)
+
+	assert.NotEqual(t, parserFor("example.co.jp"), tldPlus2Parser)
+	assert.NotEqual(t, parserFor("example.jp"), tldPlus2Parser)
+
+	assert.NotEqual(t, parserFor("example.ex.co.jp"), tldPlus1Parser)
+	assert.NotEqual(t, parserFor("example.jp"), tldPlus1Parser)
+
+	assert.NotEqual(t, parserFor("example.ex.co.jp"), tldParser)
+	assert.NotEqual(t, parserFor("example.co.jp"), tldParser)
+}
+
 func TestParseRegistrantNilAddressRegex(t *testing.T) {
 	var text string
 	text = `Registrant Country: UK
