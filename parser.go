@@ -2,6 +2,7 @@ package whoisparser
 
 import (
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -165,9 +166,18 @@ func Parse(domain string, text string) *Record {
 }
 
 func parserFor(domain string) IParser {
-	for zone, parser := range parsers {
+	zones := make([]string, len(parsers))
+	for zone := range parsers {
+		zones = append(zones, zone)
+	}
+
+	sort.Slice(zones, func(i, j int) bool {
+		return len(zones[i]) > len(zones[j])
+	})
+
+	for _, zone := range zones {
 		if strings.HasSuffix(domain, zone) {
-			return parser
+			return parsers[zone]
 		}
 	}
 	return &DefaultParser
